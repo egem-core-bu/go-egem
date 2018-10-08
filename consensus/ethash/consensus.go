@@ -890,6 +890,7 @@ func disperseRewardsEGEMIP1(config *params.ChainConfig, state *state.StateDB, he
 		state.AddBalance(devFund2F, d6Reward)
 		state.AddBalance(devFund3F, d6Reward)
 		state.AddBalance(nodeFund, d6Reward)
+		state.AddBalance(nodeFund, d6Reward)
 		state.AddBalance(bountyFund, d6Reward)
 
 	} else if (header.Number.Cmp(egemRewardSwitchBlockEra5) == 1) {
@@ -910,6 +911,7 @@ func disperseRewardsEGEMIP1(config *params.ChainConfig, state *state.StateDB, he
 		state.AddBalance(devFund1F, d5Reward)
 		state.AddBalance(devFund2F, d5Reward)
 		state.AddBalance(devFund3F, d5Reward)
+		state.AddBalance(nodeFund, d5Reward)
 		state.AddBalance(nodeFund, d5Reward)
 		state.AddBalance(bountyFund, d5Reward)
 
@@ -932,6 +934,7 @@ func disperseRewardsEGEMIP1(config *params.ChainConfig, state *state.StateDB, he
 		state.AddBalance(devFund2F, d4Reward)
 		state.AddBalance(devFund3F, d4Reward)
 		state.AddBalance(nodeFund, d4Reward)
+		state.AddBalance(nodeFund, d4Reward)
 		state.AddBalance(bountyFund, d4Reward)
 
 	} else if (header.Number.Cmp(egemRewardSwitchBlockEra3) == 1) {
@@ -952,6 +955,7 @@ func disperseRewardsEGEMIP1(config *params.ChainConfig, state *state.StateDB, he
 		state.AddBalance(devFund1F, d3Reward)
 		state.AddBalance(devFund2F, d3Reward)
 		state.AddBalance(devFund3F, d3Reward)
+		state.AddBalance(nodeFund, d3Reward)
 		state.AddBalance(nodeFund, d3Reward)
 		state.AddBalance(bountyFund, d3Reward)
 
@@ -974,6 +978,7 @@ func disperseRewardsEGEMIP1(config *params.ChainConfig, state *state.StateDB, he
 		state.AddBalance(devFund2F, d2Reward)
 		state.AddBalance(devFund3F, d2Reward)
 		state.AddBalance(nodeFund, d2Reward)
+		state.AddBalance(nodeFund, d2Reward)
 		state.AddBalance(bountyFund, d2Reward)
 
 	} else if (header.Number.Cmp(egemRewardSwitchBlockEra1) == 1) {
@@ -995,6 +1000,7 @@ func disperseRewardsEGEMIP1(config *params.ChainConfig, state *state.StateDB, he
 		state.AddBalance(devFund2F, d1Reward)
 		state.AddBalance(devFund3F, d1Reward)
 		state.AddBalance(nodeFund, d1Reward)
+		state.AddBalance(nodeFund, d1Reward)
 		state.AddBalance(bountyFund, d1Reward)
 
 	} else if (header.Number.Cmp(egemRewardSwitchBlockEra0) == 1) {
@@ -1015,6 +1021,7 @@ func disperseRewardsEGEMIP1(config *params.ChainConfig, state *state.StateDB, he
 		state.AddBalance(devFund1F, d0Reward)
 		state.AddBalance(devFund2F, d0Reward)
 		state.AddBalance(devFund3F, d0Reward)
+		state.AddBalance(nodeFund, d0Reward)
 		state.AddBalance(nodeFund, d0Reward)
 		state.AddBalance(bountyFund, d0Reward)
 
