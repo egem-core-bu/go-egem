@@ -30,7 +30,6 @@ import (
 	"github.com/TeamEGEM/go-egem/common"
 	"github.com/TeamEGEM/go-egem/common/mclock"
 	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/core/rawdb"
 	"github.com/TeamEGEM/go-egem/core/state"
 	"github.com/TeamEGEM/go-egem/core/types"
 	"github.com/TeamEGEM/go-egem/core/vm"
@@ -129,9 +128,6 @@ type BlockChain struct {
 	vmConfig  vm.Config
 
 	badBlocks *lru.Cache // Bad block cache
-
-
-	atxi *AtxiT // (issue #58)
 }
 
 // NewBlockChain returns a fully initialised block chain using information
@@ -198,16 +194,6 @@ func NewBlockChain(db ethdb.Database, cacheConfig *CacheConfig, chainConfig *par
 	return bc, nil
 }
 
-// SetAtxi sets the db and in-use var for atx indexing.
-func (bc *BlockChain) SetAtxi(a *AtxiT) {
-	bc.atxi = a
-}
-
-// GetAtxi return indexes db and if atx index in use.
-func (bc *BlockChain) GetAtxi() *AtxiT {
-	return bc.atxi
-}
-
 func (bc *BlockChain) getProcInterrupt() bool {
 	return atomic.LoadInt32(&bc.procInterrupt) == 1
 }
@@ -216,7 +202,7 @@ func (bc *BlockChain) getProcInterrupt() bool {
 // assumes that the chain manager mutex is held.
 func (bc *BlockChain) loadLastState() error {
 	// Restore the last known head block
-	head := rawdb.ReadHeadBlockHash(bc.db)
+	head := GetHeadBlockHash(bc.db)
 	if head == (common.Hash{}) {
 		// Corrupt or empty database, init from scratch
 		log.Warn("Empty database, resetting chain")
@@ -317,10 +303,12 @@ func (bc *BlockChain) SetHead(head uint64) error {
 	}
 	currentBlock := bc.CurrentBlock()
 	currentFastBlock := bc.CurrentFastBlock()
-
-	rawdb.WriteHeadBlockHash(bc.db, currentBlock.Hash())
-	rawdb.WriteHeadFastBlockHash(bc.db, currentFastBlock.Hash())
-
+	if err := WriteHeadBlockHash(bc.db, currentBlock.Hash()); err != nil {
+		log.Crit("Failed to reset head full block", "err", err)
+	}
+	if err := WriteHeadFastBlockHash(bc.db, currentFastBlock.Hash()); err != nil {
+		log.Crit("Failed to reset head fast block", "err", err)
+	}
 	return bc.loadLastState()
 }
 
@@ -418,8 +406,9 @@ func (bc *BlockChain) ResetWithGenesisBlock(genesis *types.Block) error {
 	if err := bc.hc.WriteTd(genesis.Hash(), genesis.NumberU64(), genesis.Difficulty()); err != nil {
 		log.Crit("Failed to write genesis block TD", "err", err)
 	}
-	rawdb.WriteBlock(bc.db, genesis)
-
+	if err := WriteBlock(bc.db, genesis); err != nil {
+		log.Crit("Failed to write genesis block", "err", err)
+	}
 	bc.genesisBlock = genesis
 	bc.insert(bc.genesisBlock)
 	bc.currentBlock.Store(bc.genesisBlock)
@@ -485,19 +474,24 @@ func (bc *BlockChain) ExportN(w io.Writer, first uint64, last uint64) error {
 // Note, this function assumes that the `mu` mutex is held!
 func (bc *BlockChain) insert(block *types.Block) {
 	// If the block is on a side chain or an unknown one, force other heads onto it too
-	updateHeads := rawdb.ReadCanonicalHash(bc.db, block.NumberU64()) != block.Hash()
+	updateHeads := GetCanonicalHash(bc.db, block.NumberU64()) != block.Hash()
 
 	// Add the block to the canonical chain number scheme and mark as the head
-	rawdb.WriteCanonicalHash(bc.db, block.Hash(), block.NumberU64())
-	rawdb.WriteHeadBlockHash(bc.db, block.Hash())
-
+	if err := WriteCanonicalHash(bc.db, block.Hash(), block.NumberU64()); err != nil {
+		log.Crit("Failed to insert block number", "err", err)
+	}
+	if err := WriteHeadBlockHash(bc.db, block.Hash()); err != nil {
+		log.Crit("Failed to insert head block hash", "err", err)
+	}
 	bc.currentBlock.Store(block)
 
 	// If the block is better than our head or is on a different chain, force update heads
 	if updateHeads {
 		bc.hc.SetCurrentHeader(block.Header())
-		rawdb.WriteHeadFastBlockHash(bc.db, block.Hash())
 
+		if err := WriteHeadFastBlockHash(bc.db, block.Hash()); err != nil {
+			log.Crit("Failed to insert head fast block hash", "err", err)
+		}
 		bc.currentFastBlock.Store(block)
 	}
 }
@@ -808,22 +802,14 @@ func (bc *BlockChain) InsertReceiptChain(blockChain types.Blocks, receiptChain [
 			return i, fmt.Errorf("failed to set receipts data: %v", err)
 		}
 		// Write all the data out into the database
-		rawdb.WriteBody(batch, block.Hash(), block.NumberU64(), block.Body())
-		rawdb.WriteReceipts(batch, block.Hash(), block.NumberU64(), receipts)
-		rawdb.WriteTxLookupEntries(batch, block)
-		// Store the addr-tx indexes if enabled (issue #58)
-		if bc.atxi != nil {
-			if err := WriteBlockAddTxIndexes(bc.Config(), bc.atxi.Db, block); err != nil {
-				log.Error("failed to write block add-tx indexes, err: %v", err)
-			}
-			// if buildATXI has been in use (via RPC) and is NOT finished, current < stop
-			// if buildATXI has been in use (via RPC) and IS finished, current == stop
-			// else if builtATXI has not been in use (via RPC), then current == stop == 0
-			if bc.atxi.AutoMode && bc.atxi.Progress.Current == bc.atxi.Progress.Stop {
-				if err := bc.atxi.SetATXIBookmark(block.NumberU64()); err != nil {
-					log.Error(err.Error())
-				}
-			}
+		if err := WriteBody(batch, block.Hash(), block.NumberU64(), block.Body()); err != nil {
+			return i, fmt.Errorf("failed to write block body: %v", err)
+		}
+		if err := WriteBlockReceipts(batch, block.Hash(), block.NumberU64(), receipts); err != nil {
+			return i, fmt.Errorf("failed to write block receipts: %v", err)
+		}
+		if err := WriteTxLookupEntries(batch, block); err != nil {
+			return i, fmt.Errorf("failed to write lookup metadata: %v", err)
 		}
 		stats.processed++
 
@@ -1010,38 +996,6 @@ func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.
 	return status, nil
 }
 
-// WriteBlockAddrTxIndexesBatch builds indexes for a given range of blocks N. It writes batches at increment 'step'.
-// If any error occurs during db writing it will be returned immediately.
-// It's sole implementation is the command 'atxi-build', since we must use individual block atxi indexing during
-// sync and import in order to ensure we're on the canonical chain for each block.
-func (bc *BlockChain) WriteBlockAddrTxIndexesBatch(config *params.ChainConfig, indexDb ethdb.Database, startBlockN, stopBlockN, stepN uint64) (txsCount int, err error) {
-	block := bc.GetBlockByNumber(startBlockN)
-	batch := indexDb.NewBatch()
- 	blockProcessedCount := uint64(0)
-	blockProcessedHead := func() uint64 {
-		return startBlockN + blockProcessedCount
-	}
- 	for block != nil && blockProcessedHead() <= stopBlockN {
-		txP, err := putBlockAddrTxsToBatch(config, batch, block)
-		if err != nil {
-			return txsCount, err
-		}
-		txsCount += txP
-		blockProcessedCount++
- 		// Write on stepN mod
-		if blockProcessedCount%stepN == 0 {
-			if err := batch.Write(); err != nil {
-				return txsCount, err
-			} else {
-				batch = indexDb.NewBatch()
-			}
-		}
-		block = bc.GetBlockByNumber(blockProcessedHead())
-	}
- 	// This will put the last batch
-	return txsCount, batch.Write()
-}
-
 // InsertChain attempts to insert the given batch of blocks in to the canonical
 // chain or, otherwise, create a fork. If an error is returned it will return
 // the index number of the failing block as well an error describing what went
@@ -1218,20 +1172,6 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 			events = append(events, ChainEvent{block, block.Hash(), logs})
 			lastCanon = block
 
-			// Store the addr-tx indexes if enabled (issue 58)
-			if bc.atxi != nil {
-				if err := WriteBlockAddTxIndexes(bc.Config(), bc.atxi.Db, block); err != nil {
-					return i, events, coalescedLogs, err
-				}
-				// if buildATXI has been in use (via RPC) and is NOT finished, current < stop
-				// if buildATXI has been in use (via RPC) and IS finished, current == stop
-				// else if builtATXI has not been in use (via RPC), then current == stop == 0
-				if bc.atxi.AutoMode && bc.atxi.Progress.Current == bc.atxi.Progress.Stop {
-					if err := bc.atxi.SetATXIBookmark(block.NumberU64()); err != nil {
-						return i, events, coalescedLogs, err
-					}
-				}
-			}
 			// Only count canonical blocks for GC processing time
 			bc.gcproc += proctime
 
@@ -1370,17 +1310,6 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 			return fmt.Errorf("Invalid new chain")
 		}
 	}
-	// Remove all atxis from old chain; indexes should only reflect canonical (issue 58)
-	// Doesn't matter whether automode or not, they should be removed.
-	if bc.atxi != nil {
-		for _, block := range oldChain {
-			for _, tx := range block.Transactions() {
-				if err := RmAddrTx(bc.atxi.Db, tx, bc.Config(), block.Number()); err != nil {
-					return err
-				}
-			}
-		}
-	}
 	// Ensure the user sees large reorgs
 	if len(oldChain) > 0 && len(newChain) > 0 {
 		logFn := log.Debug
@@ -1398,20 +1327,8 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 		// insert the block in the canonical way, re-writing history
 		bc.insert(newChain[i])
 		// write lookup entries for hash based transaction/receipt searches
-		rawdb.WriteTxLookupEntries(bc.db, newChain[i])
-		// Store the addr-tx indexes if enabled
-		if bc.atxi != nil {
-			if err := WriteBlockAddTxIndexes(bc.Config(), bc.atxi.Db, newChain[i]); err != nil {
-				return err
-			}
-			// if buildATXI has been in use (via RPC) and is NOT finished, current < stop
-			// if buildATXI has been in use (via RPC) and IS finished, current == stop
-			// else if builtATXI has not been in use (via RPC), then current == stop == 0
-			if bc.atxi.AutoMode && bc.atxi.Progress.Current == bc.atxi.Progress.Stop {
-				if err := bc.atxi.SetATXIBookmark(newChain[i].NumberU64()); err != nil {
-					return err
-				}
-			}
+		if err := WriteTxLookupEntries(bc.db, newChain[i]); err != nil {
+			return err
 		}
 		addedTxs = append(addedTxs, newChain[i].Transactions()...)
 	}
@@ -1420,7 +1337,7 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 	// When transactions get deleted from the database that means the
 	// receipts that were created in the fork must also be deleted
 	for _, tx := range diff {
-		rawdb.DeleteTxLookupEntry(bc.db, tx.Hash())
+		DeleteTxLookupEntry(bc.db, tx.Hash())
 	}
 	if len(deletedLogs) > 0 {
 		go bc.rmLogsFeed.Send(RemovedLogsEvent{deletedLogs})
