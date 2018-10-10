@@ -182,6 +182,12 @@ var AppHelpFlagGroups = []flagGroup{
 		},
 	},
 	{
+		Name: "QUARRYNODE",
+		Flags: []cli.Flag{
+			utils.QuarrynodeFlag,
+		},
+	},
+	{
 		Name: "MINER",
 		Flags: []cli.Flag{
 			utils.MiningEnabledFlag,

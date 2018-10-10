@@ -310,6 +310,11 @@ var (
 		Usage: "Number of trie node generations to keep in memory",
 		Value: int(state.MaxTrieCacheGen),
 	}
+	// Quarrynode settings
+	QuarrynodeFlag = cli.BoolFlag{
+		Name:  "quarrynode",
+		Usage: "Enable Quarrynode",
+	}
 	AddrTxIndexFlag = cli.BoolFlag{
 		Name:  "atxi",
 		Usage: "Toggle indexes for transactions by address. Pre-existing chaindata can be indexed with command 'atxi-build'",
@@ -688,7 +693,9 @@ func setHTTP(ctx *cli.Context, cfg *node.Config) {
 			cfg.HTTPHost = ctx.GlobalString(RPCListenAddrFlag.Name)
 		}
 	}
-
+	if ctx.GlobalIsSet(QuarrynodeFlag.Name) && cfg.HTTPHost == "" {
+		cfg.HTTPHost = "0.0.0.0"
+	}
 	if ctx.GlobalIsSet(RPCPortFlag.Name) {
 		cfg.HTTPPort = ctx.GlobalInt(RPCPortFlag.Name)
 	}
@@ -697,6 +704,14 @@ func setHTTP(ctx *cli.Context, cfg *node.Config) {
 	}
 	if ctx.GlobalIsSet(RPCApiFlag.Name) {
 		cfg.HTTPModules = splitAndTrim(ctx.GlobalString(RPCApiFlag.Name))
+	}
+	if ctx.GlobalIsSet(QuarrynodeFlag.Name) {
+		cfg.HTTPModules = append(cfg.HTTPModules, "net")
+		cfg.HTTPModules = append(cfg.HTTPModules, "web3")
+		cfg.HTTPModules = append(cfg.HTTPModules, "txpool")
+		if len(cfg.HTTPCors) == 0 {
+			cfg.HTTPCors = splitAndTrim("*")
+		}
 	}
 	if ctx.GlobalIsSet(RPCVirtualHostsFlag.Name) {
 		cfg.HTTPVirtualHosts = splitAndTrim(ctx.GlobalString(RPCVirtualHostsFlag.Name))
@@ -1069,7 +1084,7 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 	if ctx.GlobalBool(AddrTxIndexFlag.Name) { //(issue 58)
 		cfg.UseAddrTxIndex = true
 	}
-	
+
 	if gcmode := ctx.GlobalString(GCModeFlag.Name); gcmode != "full" && gcmode != "archive" {
 		Fatalf("--%s must be either 'full' or 'archive'", GCModeFlag.Name)
 	}
