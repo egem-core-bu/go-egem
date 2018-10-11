@@ -33,7 +33,7 @@ import (
 var AppHelpTemplate = `NAME:
    {{.App.Name}} - {{.App.Usage}}
 
-   Copyright 2013-2017 The go-ethereum Authors
+   Copyright 2013-PRESENT The go-ethereum/go-egem Authors
 
 USAGE:
    {{.App.HelpName}} [options]{{if .App.Commands}} command [command options]{{end}} {{if .App.ArgsUsage}}{{.App.ArgsUsage}}{{else}}[arguments...]{{end}}
@@ -132,6 +132,7 @@ var AppHelpFlagGroups = []flagGroup{
 			utils.CacheDatabaseFlag,
 			utils.CacheGCFlag,
 			utils.TrieCacheGenFlag,
+			utils.DatabaseHandles,
 		},
 	},
 	{
@@ -139,6 +140,8 @@ var AppHelpFlagGroups = []flagGroup{
 		Flags: []cli.Flag{
 			utils.UnlockedAccountFlag,
 			utils.PasswordFileFlag,
+			utils.AddrTxIndexFlag,
+			utils.AddrTxIndexAutoBuildFlag,
 		},
 	},
 	{
@@ -177,6 +180,12 @@ var AppHelpFlagGroups = []flagGroup{
 			utils.NetrestrictFlag,
 			utils.NodeKeyFileFlag,
 			utils.NodeKeyHexFlag,
+		},
+	},
+	{
+		Name: "QUARRYNODE",
+		Flags: []cli.Flag{
+			utils.QuarrynodeFlag,
 		},
 	},
 	{
