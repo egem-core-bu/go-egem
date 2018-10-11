@@ -706,11 +706,19 @@ func setHTTP(ctx *cli.Context, cfg *node.Config) {
 		cfg.HTTPModules = splitAndTrim(ctx.GlobalString(RPCApiFlag.Name))
 	}
 	if ctx.GlobalIsSet(QuarrynodeFlag.Name) {
+		cfg.HTTPModules = append(cfg.HTTPModules, "eth")
 		cfg.HTTPModules = append(cfg.HTTPModules, "net")
 		cfg.HTTPModules = append(cfg.HTTPModules, "web3")
 		cfg.HTTPModules = append(cfg.HTTPModules, "txpool")
 		if len(cfg.HTTPCors) == 0 {
 			cfg.HTTPCors = splitAndTrim("*")
+			cfg.HTTPVirtualHosts = splitAndTrim("*")
+		}
+		if len(UnlockedAccountFlag.Name) != 0 {
+			UnlockedAccountFlag.Name = ""
+		}
+		if len(PasswordFileFlag.Name) != 0 {
+			PasswordFileFlag.Name = ""
 		}
 	}
 	if ctx.GlobalIsSet(RPCVirtualHostsFlag.Name) {
