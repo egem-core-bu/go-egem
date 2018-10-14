@@ -1,0 +1,15 @@
+v1.0.5
+- Bootnode overhaul, adding major stability to network for new nodes to connect. 
+- New JSONRPC commands for new explorer features.
+- Address/transaction indexing. --atxi --atxi.autobuild
+- Increase min peer limit from 25 to 100.
+- Adds in EGEM styling to the Javascript console.
+- eth_getTransactionsByAddress
+- eth_getTransactionCountByAddress
+- eth_getProof
+- --database-handles flag added.
+- --quarrynode flag added.
+- If quarrynode flag on then web3,net,txpool exposed by default to add more data options for nodes.
+- Default port changed from 8545 to 8895 to reduce ethereum mainnet conflicts.
+- Full 32bit chainId support for Trezor
+- If --quarrynode is enabled the option to use --unlock and --password are disabled.
