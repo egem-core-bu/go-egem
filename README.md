@@ -3,12 +3,12 @@
 Official golang implementation of the EGEM protocol.
 
 Automated builds are available for stable releases and the unstable master branch.
-Binary archives are published at https://egem.io/downloads/.
+Binary archives are published at https://git.egem.io/team/egem-binaries.
 
 ## Building the source
 
 For prerequisites and detailed build instructions please read the
-[Installation Instructions](https://github.com/TeamEGEM/go-egem/wiki/Building-Ethereum)
+[Installation Instructions](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 on the wiki.
 
 Building egem requires both a Go (version 1.10 or later) and a C compiler.
@@ -33,9 +33,9 @@ The go-egem project comes with several wrappers/executables found in the `cmd` d
 ## Running egem
 
 Going through all the possible command line flags is out of scope here (please consult our
-[CLI Wiki page](https://github.com/TeamEGEM/go-egem/wiki/Command-Line-Options)), but we've
+[CLI Wiki page](https://git.egem.io/team/go-egem/wikis/Command-Line-Options)), but we've
 enumerated a few common parameter combos to get you up to speed quickly on how you can run your
-own Geth instance.
+own EGEM instance.
 
 ### Full node on the main EGEM network
 
@@ -80,31 +80,17 @@ To get an idea how the file should look like you can use the `dumpconfig` subcom
 $ egem --your-favourite-flags dumpconfig
 ```
 
-*Note: This works only with geth v1.6.0 and above.*
-
-#### Docker quick start
-
-One of the quickest ways to get Ethereum up and running on your machine is by using Docker:
-
-```
-docker run -d --name ethereum-node -v /Users/alice/ethereum:/root \
-           -p 8545:8545 -p 30303:30303 \
-           ethereum/client-go
-```
-
-This will start geth in fast-sync mode with a DB memory allowance of 1GB just as the above command does.  It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. There is also an `alpine` tag available for a slim version of the image.
-
-Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `geth` binds to the local interface and RPC endpoints is not accessible from the outside.
+Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `egem` binds to the local interface and RPC endpoints is not accessible from the outside.
 
 ### Programatically interfacing Geth nodes
 
-As a developer, sooner rather than later you'll want to start interacting with Geth and the Ethereum
-network via your own programs and not manually through the console. To aid this, Geth has built in
+As a developer, sooner rather than later you'll want to start interacting with EGEM and the Ethereum
+network via your own programs and not manually through the console. To aid this, EGEM has built in
 support for a JSON-RPC based APIs ([standard APIs](https://github.com/ethereum/wiki/wiki/JSON-RPC) and
 [Geth specific APIs](https://github.com/TeamEGEM/go-egem/wiki/Management-APIs)). These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
-The IPC interface is enabled by default and exposes all the APIs supported by Geth, whereas the HTTP
+The IPC interface is enabled by default and exposes all the APIs supported by EGEM, whereas the HTTP
 and WS interfaces need to manually be enabled and only expose a subset of APIs due to security reasons.
 These can be turned on/off and configured as you'd expect.
 
@@ -112,12 +98,12 @@ HTTP based JSON-RPC API options:
 
   * `--rpc` Enable the HTTP-RPC server
   * `--rpcaddr` HTTP-RPC server listening interface (default: "localhost")
-  * `--rpcport` HTTP-RPC server listening port (default: 8545)
+  * `--rpcport` HTTP-RPC server listening port (default: 8895)
   * `--rpcapi` API's offered over the HTTP-RPC interface (default: "eth,net,web3")
   * `--rpccorsdomain` Comma separated list of domains from which to accept cross origin requests (browser enforced)
   * `--ws` Enable the WS-RPC server
   * `--wsaddr` WS-RPC server listening interface (default: "localhost")
-  * `--wsport` WS-RPC server listening port (default: 8546)
+  * `--wsport` WS-RPC server listening port (default: 8896)
   * `--wsapi` API's offered over the WS-RPC interface (default: "eth,net,web3")
   * `--wsorigins` Origins from which to accept websockets requests
   * `--ipcdisable` Disable the IPC-RPC server
@@ -125,7 +111,7 @@ HTTP based JSON-RPC API options:
   * `--ipcpath` Filename for IPC socket/pipe within the datadir (explicit paths escape it)
 
 You'll need to use your own programming environments' capabilities (libraries, tools, etc) to connect
-via HTTP, WS or IPC to a Geth node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification)
+via HTTP, WS or IPC to a EGEM node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification)
 on all transports. You can reuse the same connection for multiple requests!
 
 **Note: Please understand the security implications of opening up an HTTP/WS based transport before
