@@ -37,6 +37,10 @@ Going through all the possible command line flags is out of scope here (please c
 enumerated a few common parameter combos to get you up to speed quickly on how you can run your
 own EGEM instance.
 
+## Custom Commands
+  * `--quarrynode` Enable the Quarrynode server.
+  * `--database-handles` allows more handles when fast syncing, speeds up chain sync on fresh start.
+
 ### Full node on the main EGEM network
 
 By far the most common scenario is people wanting to simply interact with the Ethereum network:
