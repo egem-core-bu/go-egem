@@ -38,8 +38,6 @@ import (
 var (
 	maxUncles                       = 2                 // Maximum number of uncles allowed in a single block
 	allowedFutureBlockTime          = 15 * time.Second  // Max time from current time allowed for blocks, before they're considered future blocks
-	FrontierBlockReward    					*big.Int = big.NewInt(5e+18) // Not used will be removed in furture EGEM update.
-	ByzantiumBlockReward   					*big.Int = big.NewInt(3e+18) // Not used will be removed in furture EGEM update.
 )
 
 //  EGEM Variables
@@ -79,6 +77,8 @@ var (
 	devFund1F												= common.HexToAddress("0x63e9ceFD428D37430205c0ab8fa2a34A21F911Ac") // beast/tbates
 	devFund2F												= common.HexToAddress("0x2025ed239a8dec4de0034a252d5c5e385b73fcd0") // osoese
 	devFund3F												= common.HexToAddress("0xe485aA04bb231f331B85BF64614737c6495CC4b3") // jal
+	egemSwitchBlock2       					*big.Int = big.NewInt(1750000)          //  1.75m block transtiton
+	nodeFund												= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644") // node multisig
 )
 
 // Various error messages to mark blocks invalid. These should be private to
@@ -450,6 +450,15 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 		// Header seems complete, assemble into a block and return
 		return types.NewBlock(header, txs, uncles, receipts), nil
 
+	} else if (header.Number.Cmp(egemSwitchBlock2) == 1) {
+
+		// Accumulate any block and uncle rewards and commit the final state root
+		accumulateRewards3(chain.Config(), state, header, uncles)
+		header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
+
+		// Header seems complete, assemble into a block and return
+		return types.NewBlock(header, txs, uncles, receipts), nil
+
 	} else {
 
 		// Accumulate any block and uncle rewards and commit the final state root
@@ -795,6 +804,187 @@ func accumulateRewards2(config *params.ChainConfig, state *state.StateDB, header
 		state.AddBalance(devFund1F, d0Reward)
 		state.AddBalance(devFund2F, d0Reward)
 		state.AddBalance(devFund3F, d0Reward)
+
+	} else {
+		reward := new(big.Int).Set(block0Reward)
+		r := new(big.Int)
+		for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+	}
+
+}
+
+
+// AccumulateRewards credits the coinbase of the given block with the mining
+// reward. The total reward consists of the static block reward and rewards for
+// included uncles. The coinbase of each uncle block is also rewarded.
+func accumulateRewards3(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
+
+	// Select the correct block reward based on chain progression
+	block0Reward := egem0BlockReward
+	block1Reward := egem1BlockReward
+	block2Reward := egem2BlockReward
+	block3Reward := egem3BlockReward
+	block4Reward := egem4BlockReward
+	block5Reward := egem5BlockReward
+	block6Reward := egem6BlockReward
+	d0Reward := egem0DevReward
+	d1Reward := egem1DevReward
+	d2Reward := egem2DevReward
+  d3Reward := egem3DevReward
+	d4Reward := egem4DevReward
+	d5Reward := egem5DevReward
+	d6Reward := egem6DevReward
+
+	// Accumulate the rewards for the miner and any included uncles
+	if (header.Number.Cmp(egemRewardSwitchBlockEra6) == 1) {
+			reward := new(big.Int).Set(block6Reward)
+			r := new(big.Int)
+			for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.", "|", "Dev Block Fee:", d6Reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+		state.AddBalance(devFund0F, d6Reward)
+		state.AddBalance(devFund1F, d6Reward)
+		state.AddBalance(devFund2F, d6Reward)
+		state.AddBalance(devFund3F, d6Reward)
+		state.AddBalance(nodeFund, block6Reward) // 0.125 EGEM
+
+	} else if (header.Number.Cmp(egemRewardSwitchBlockEra5) == 1) {
+			reward := new(big.Int).Set(block5Reward)
+			r := new(big.Int)
+			for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.", "|", "Dev Block Fee:", d5Reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+		state.AddBalance(devFund0F, d5Reward)
+		state.AddBalance(devFund1F, d5Reward)
+		state.AddBalance(devFund2F, d5Reward)
+		state.AddBalance(devFund3F, d5Reward)
+		state.AddBalance(nodeFund, block5Reward)   // 0.25 EGEM
+
+	} else if (header.Number.Cmp(egemRewardSwitchBlockEra4) == 1) {
+			reward := new(big.Int).Set(block4Reward)
+			r := new(big.Int)
+			for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.", "|", "Dev Block Fee:", d4Reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+		state.AddBalance(devFund0F, d4Reward)
+		state.AddBalance(devFund1F, d4Reward)
+		state.AddBalance(devFund2F, d4Reward)
+		state.AddBalance(devFund3F, d4Reward)
+		state.AddBalance(nodeFund, block5Reward)   // 0.25 EGEM
+
+	} else if (header.Number.Cmp(egemRewardSwitchBlockEra3) == 1) {
+			reward := new(big.Int).Set(block3Reward)
+			r := new(big.Int)
+			for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.", "|", "Dev Block Fee:", d3Reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+		state.AddBalance(devFund0F, d3Reward)
+		state.AddBalance(devFund1F, d3Reward)
+		state.AddBalance(devFund2F, d3Reward)
+		state.AddBalance(devFund3F, d3Reward)
+		state.AddBalance(nodeFund, block5Reward)  // 0.25 EGEM
+
+	} else if (header.Number.Cmp(egemRewardSwitchBlockEra2) == 1) {
+			reward := new(big.Int).Set(block2Reward)
+			r := new(big.Int)
+			for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.", "|", "Dev Block Fee:", d2Reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+		state.AddBalance(devFund0F, d2Reward)
+		state.AddBalance(devFund1F, d2Reward)
+		state.AddBalance(devFund2F, d2Reward)
+		state.AddBalance(devFund3F, d2Reward)
+		state.AddBalance(nodeFund, block4Reward) // 0.5 EGEM
+
+	} else if (header.Number.Cmp(egemRewardSwitchBlockEra1) == 1) {
+			reward := new(big.Int).Set(block1Reward)
+			r := new(big.Int)
+			for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.", "|", "Dev Block Fee:", d1Reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+		state.AddBalance(devFund0F, d1Reward)
+		state.AddBalance(devFund1F, d1Reward)
+		state.AddBalance(devFund2F, d1Reward)
+		state.AddBalance(devFund3F, d1Reward)
+		state.AddBalance(nodeFund, block4Reward) // 0.5 EGEM
+
+	} else if (header.Number.Cmp(egemRewardSwitchBlockEra0) == 1) {
+			reward := new(big.Int).Set(block0Reward)
+			r := new(big.Int)
+			for _, uncle := range uncles {
+					r.Add(uncle.Number, big8)
+					r.Sub(r, header.Number)
+					r.Mul(r, reward)
+					r.Div(r, big8)
+
+					r.Div(reward, big32)
+					reward.Add(reward, r)
+			}
+		//fmt.Println("Miner Block Reward:", reward, "in Wei.", "|", "Dev Block Fee:", d0Reward, "in Wei.")
+		state.AddBalance(header.Coinbase, reward)
+		state.AddBalance(devFund0F, d0Reward)
+		state.AddBalance(devFund1F, d0Reward)
+		state.AddBalance(devFund2F, d0Reward)
+		state.AddBalance(devFund3F, d0Reward)
+		state.AddBalance(nodeFund, block4Reward) // 0.5 EGEM
 
 	} else {
 		reward := new(big.Int).Set(block0Reward)
