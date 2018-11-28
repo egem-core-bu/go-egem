@@ -1,5 +1,10 @@
+v1.0.6
+- 51% resistance provided by the PIRL team.
+- Various text cleanups and typos.
+- Node fund with era reduction implemented and stored in a 3 of 5 multisig wallet.
+
 v1.0.5
-- Bootnode overhaul, adding major stability to network for new nodes to connect. 
+- Bootnode overhaul, adding major stability to network for new nodes to connect.
 - New JSONRPC commands for new explorer features.
 - Address/transaction indexing. --atxi --atxi.autobuild
 - Increase min peer limit from 25 to 100.
