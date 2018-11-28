@@ -77,7 +77,7 @@ var (
 	devFund1F												= common.HexToAddress("0x63e9ceFD428D37430205c0ab8fa2a34A21F911Ac") // beast/tbates
 	devFund2F												= common.HexToAddress("0x2025ed239a8dec4de0034a252d5c5e385b73fcd0") // osoese
 	devFund3F												= common.HexToAddress("0xe485aA04bb231f331B85BF64614737c6495CC4b3") // jal
-	egemSwitchBlock2       					*big.Int = big.NewInt(1750000)          //  1.75m block transtiton
+	egemSwitchBlock2       					*big.Int = big.NewInt(1850000)          //  1.85m block transtiton
 	nodeFund												= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644") // node multisig
 )
 
