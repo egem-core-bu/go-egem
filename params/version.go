@@ -24,7 +24,8 @@ const (
 	VersionMajor = 1          // Major version component of the current release
 	VersionMinor = 0          // Minor version component of the current release
 	VersionPatch = 6          // Patch version component of the current release
-	VersionMeta  = "tolkien"   // Version metadata to append to the version string
+	VersionMeta  = "tolkien"  // Version metadata to append to the version string
+	VersionMsg   = ""   // Node type to append to the version string
 )
 
 // Version holds the textual version string.
@@ -32,6 +33,9 @@ var Version = func() string {
 	v := fmt.Sprintf("%d.%d.%d", VersionMajor, VersionMinor, VersionPatch)
 	if VersionMeta != "" {
 		v += "-" + VersionMeta
+	}
+	if VersionMsg != "" {
+		v += "-" + VersionMsg
 	}
 	return v
 }()
