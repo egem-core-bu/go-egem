@@ -1080,14 +1080,14 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 		"synced", syncStatus, "number", tipOfTheMainChain, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty ,"implementation", "Pirl / EGEM",
 	}
 
-	log.Info("Checking legitimacy of the chain", context... )
-
 	if penalty > 0 {
 		context := []interface{}{
 			"penalty", penalty,
 		}
 		log.Error("Chain is a malicious and we should reject it", context... )
 		err = ErrDelayTooHigh
+	} else {
+		log.Info("Checking legitimacy of new segment", context... )
 	}
 
 	if penalty == 0 {
@@ -1432,7 +1432,7 @@ func (st *insertStats) report(chain []*types.Block, index int, cache common.Stor
 		if st.ignored > 0 {
 			context = append(context, []interface{}{"ignored", st.ignored}...)
 		}
-		log.Info("Imported new chain segment", context...)
+		log.Info("Importing new chain segment", context...)
 
 		*st = insertStats{startTime: now, lastIndex: index + 1}
 	}
