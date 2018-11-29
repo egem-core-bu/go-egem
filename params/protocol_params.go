@@ -84,6 +84,6 @@ var (
 	GenesisDifficulty      = big.NewInt(113635671) // Difficulty of the Genesis block.
 	MinimumDifficulty      = big.NewInt(113635671) // The minimum that the difficulty may ever be.
 	DurationLimit          = big.NewInt(17)     // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
-	TimeCapsuleBlock  = int64(1750000)
-	TimeCapsuleLength = uint64(20)
+	TimeCapsuleBlock  		 = int64(1750000)
+	TimeCapsuleLength 	   = uint64(20)
 )
