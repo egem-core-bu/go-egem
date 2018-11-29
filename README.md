@@ -37,6 +37,11 @@ Going through all the possible command line flags is out of scope here (please c
 enumerated a few common parameter combos to get you up to speed quickly on how you can run your
 own EGEM instance.
 
+## Custom Commands
+  * `--quarrynode` Enable the Quarrynode server.
+  * `--database-handles` Allows more handles when fast syncing, speeds up chain sync on fresh start.
+  * `--atxi --atxi.autobuild` Allows indexing of transactions and to make use of some new commands.
+
 ### Full node on the main EGEM network
 
 By far the most common scenario is people wanting to simply interact with the Ethereum network:
@@ -84,7 +89,7 @@ Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containe
 
 ### Programatically interfacing Geth nodes
 
-As a developer, sooner rather than later you'll want to start interacting with EGEM and the Ethereum
+As a developer, sooner rather than later you'll want to start interacting with EGEM and the EtherGem
 network via your own programs and not manually through the console. To aid this, EGEM has built in
 support for a JSON-RPC based APIs ([standard APIs](https://github.com/ethereum/wiki/wiki/JSON-RPC) and
 [Geth specific APIs](https://github.com/TeamEGEM/go-egem/wiki/Management-APIs)). These can be
