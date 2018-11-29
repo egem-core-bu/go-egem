@@ -86,6 +86,6 @@ var (
 	MinimumDifficultyNew   = big.NewInt(131072) // The minimum that the difficulty may ever be.
 	DurationLimit          = big.NewInt(17)     // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
 	DurationLimitNew       = big.NewInt(15)     // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
-	TimeCapsuleBlock  		 = int64(1850000)
+	TimeCapsuleBlock  		 = int64(1650000)
 	TimeCapsuleLength 	   = uint64(20)
 )
