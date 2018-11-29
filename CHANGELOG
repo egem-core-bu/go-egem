@@ -1,7 +1,10 @@
 v1.0.6
 - 51% resistance provided by the PIRL team.
 - Various text cleanups and typos.
-- Node fund with era reduction implemented and stored in a 3 of 5 multisig wallet.
+- Node fund with era reduction implemented and stored in a 3 of 5 multisig wallet. (block 1.85m)
+- Difficulty smoothing applied at block 1.85m along with 51% protection.
+- Difficulty of incoming blocks displayed in console.
+- DurationLimit adjustment from 17 to 15. (block 1.85m)
 
 v1.0.5
 - Bootnode overhaul, adding major stability to network for new nodes to connect.
