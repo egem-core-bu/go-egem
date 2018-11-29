@@ -327,22 +327,15 @@ func (ethash *Ethash) verifyHeader(chain consensus.ChainReader, header, parent *
 // the difficulty that a new block should have when created at time
 // given the parent block's time and difficulty.
 func (ethash *Ethash) CalcDifficulty(chain consensus.ChainReader, time uint64, parent *types.Header) *big.Int {
-	return CalcDifficulty(chain.Config(), time, parent)
-}
 
-// CalcDifficulty is the difficulty adjustment algorithm. It returns
-// the difficulty that a new block should have when created at time
-// given the parent block's time and difficulty.
-func CalcDifficulty(config *params.ChainConfig, time uint64, parent *types.Header) *big.Int {
-	next := new(big.Int).Add(parent.Number, big1)
-	switch {
-	case config.IsByzantium(next):
-		return calcDifficultyEGEM(time, parent)
-	case config.IsHomestead(next):
-		return calcDifficultyEGEM(time, parent)
-	default:
+	if (parent.Number.Cmp(egemSwitchBlock2) == 1) {
+		// Fork difficulty
+		return calcDifficultyEGEM2(time, parent)
+	} else {
+		// Genesis difficulty
 		return calcDifficultyEGEM(time, parent)
 	}
+
 }
 
 // Some weird constants to avoid constant memory allocs for them.
@@ -350,7 +343,11 @@ var (
 	big1          = big.NewInt(1)
 	big2          = big.NewInt(2)
 	big3          = big.NewInt(3)
+	big4          = big.NewInt(4)
+	big5          = big.NewInt(5)
+	big6          = big.NewInt(6)
 	big7          = big.NewInt(7)
+	big9          = big.NewInt(9)
 )
 
 // EGEM Difficulty Algo
@@ -374,6 +371,33 @@ func calcDifficultyEGEM(time uint64, parent *types.Header) *big.Int {
 		diff.Add(diff, adjustUp)
 	} else {
 		diff.Sub(parent.Difficulty, big3)
+		diff.Sub(diff, adjustDown)
+	}
+
+	if diff.Cmp(params.MinimumDifficulty) < 0 {
+		diff.Set(params.MinimumDifficulty)
+	}
+
+	//fmt.Println("Next Block Difficulty: ", diff)
+	return diff
+}
+
+func calcDifficultyEGEM2(time uint64, parent *types.Header) *big.Int {
+	diff := new(big.Int)
+	adjustUp := new(big.Int).Div(parent.Difficulty, big9)
+	adjustDown := new(big.Int).Div(parent.Difficulty, big7)
+
+	bigTime := new(big.Int)
+	bigParentTime := new(big.Int)
+
+	bigTime.SetUint64(time)
+	bigParentTime.Set(parent.Time)
+
+	if bigTime.Sub(bigTime, bigParentTime).Cmp(params.DurationLimit) < 0 {
+		diff.Add(parent.Difficulty, big9)
+		diff.Add(diff, adjustUp)
+	} else {
+		diff.Sub(parent.Difficulty, big7)
 		diff.Sub(diff, adjustDown)
 	}
 
