@@ -1037,7 +1037,7 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 	err = nil
 	timeMap := make(map[uint64]int64)
 	tipOfTheMainChain := bc.CurrentBlock().NumberU64()
-
+	currentBlock := bc.CurrentBlock()
 
 	if !syncStatus {
 		if tipOfTheMainChain == blocks[0].NumberU64() - 1 {
@@ -1077,7 +1077,7 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 	}
 	//fmt.Println("Penalty value for the chain :", penalty)
 	context := []interface{}{
-		"synced", syncStatus, "number", tipOfTheMainChain, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty ,"implementation", "Pirl / EGEM",
+		"synced", syncStatus, "number", tipOfTheMainChain, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty , "block_diff", currentBlock.Difficulty(), "implementation", "Pirl / EGEM",
 	}
 
 	if penalty > 0 {

@@ -30,6 +30,7 @@ import (
 	"github.com/TeamEGEM/go-egem/consensus/misc"
 	"github.com/TeamEGEM/go-egem/core/state"
 	"github.com/TeamEGEM/go-egem/core/types"
+	//"github.com/TeamEGEM/go-egem/log"
 	"github.com/TeamEGEM/go-egem/params"
 	set "gopkg.in/fatih/set.v0"
 )
@@ -72,13 +73,15 @@ var (
 // Fork Variables
 // Moves funds to multisigs.
 var (
-	egemSwitchBlock       					*big.Int = big.NewInt(350000)           //  350k block transtiton
+	egemSwitchBlock       				  = uint64(350000)          //  350k block transtiton
+	egemSwitchBlockB       					*big.Int = big.NewInt(350000)
 	devFund0F												= common.HexToAddress("0x1140e31A4A7ae014E55f6c235af027C5CFABCA17") // riddlez
 	devFund1F												= common.HexToAddress("0x63e9ceFD428D37430205c0ab8fa2a34A21F911Ac") // beast/tbates
 	devFund2F												= common.HexToAddress("0x2025ed239a8dec4de0034a252d5c5e385b73fcd0") // osoese
 	devFund3F												= common.HexToAddress("0xe485aA04bb231f331B85BF64614737c6495CC4b3") // jal
-	egemSwitchBlock2       					*big.Int = big.NewInt(1850000)          //  1.85m block transtiton
-	nodeFund												= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644") // node multisig
+	egemSwitchBlock2       					= uint64(1850000)          //  1.85m block transtiton
+	egemSwitchBlockB2      					*big.Int = big.NewInt(1850000)          //  1.85m block transtiton
+	nodeFund												= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644 ") // node multisig
 )
 
 // Various error messages to mark blocks invalid. These should be private to
@@ -328,10 +331,10 @@ func (ethash *Ethash) verifyHeader(chain consensus.ChainReader, header, parent *
 // given the parent block's time and difficulty.
 func (ethash *Ethash) CalcDifficulty(chain consensus.ChainReader, time uint64, parent *types.Header) *big.Int {
 
-	if (parent.Number.Cmp(egemSwitchBlock2) == 1) {
+	if (parent.Number.Cmp(egemSwitchBlockB2) == 1) {
 		// Fork difficulty
 		return calcDifficultyEGEM2(time, parent)
-	} else {
+	} else  {
 		// Genesis difficulty
 		return calcDifficultyEGEM(time, parent)
 	}
@@ -347,7 +350,9 @@ var (
 	big5          = big.NewInt(5)
 	big6          = big.NewInt(6)
 	big7          = big.NewInt(7)
+	big8  				= big.NewInt(8)
 	big9          = big.NewInt(9)
+	big32         = big.NewInt(32)
 )
 
 // EGEM Difficulty Algo
@@ -377,15 +382,17 @@ func calcDifficultyEGEM(time uint64, parent *types.Header) *big.Int {
 	if diff.Cmp(params.MinimumDifficulty) < 0 {
 		diff.Set(params.MinimumDifficulty)
 	}
-
-	//fmt.Println("Next Block Difficulty: ", diff)
+	// context := []interface{}{
+	// 	"picked", diff,
+	// }
+	// log.Info("Next Block Difficulty ", context...)
 	return diff
 }
 
 func calcDifficultyEGEM2(time uint64, parent *types.Header) *big.Int {
 	diff := new(big.Int)
 	adjustUp := new(big.Int).Div(parent.Difficulty, big9)
-	adjustDown := new(big.Int).Div(parent.Difficulty, big7)
+	adjustDown := new(big.Int).Div(parent.Difficulty, big8)
 
 	bigTime := new(big.Int)
 	bigParentTime := new(big.Int)
@@ -393,19 +400,21 @@ func calcDifficultyEGEM2(time uint64, parent *types.Header) *big.Int {
 	bigTime.SetUint64(time)
 	bigParentTime.Set(parent.Time)
 
-	if bigTime.Sub(bigTime, bigParentTime).Cmp(params.DurationLimit) < 0 {
+	if bigTime.Sub(bigTime, bigParentTime).Cmp(params.DurationLimitNew) < 0 {
 		diff.Add(parent.Difficulty, big9)
 		diff.Add(diff, adjustUp)
 	} else {
-		diff.Sub(parent.Difficulty, big7)
+		diff.Sub(parent.Difficulty, big8)
 		diff.Sub(diff, adjustDown)
 	}
 
-	if diff.Cmp(params.MinimumDifficulty) < 0 {
-		diff.Set(params.MinimumDifficulty)
+	if diff.Cmp(params.MinimumDifficultyNew) < 0 {
+		diff.Set(params.MinimumDifficultyNew)
 	}
-
-	//fmt.Println("Next Block Difficulty: ", diff)
+	// context := []interface{}{
+	// 	"picked", diff,
+	// }
+	// log.Info("Next Block Difficulty ", context...)
 	return diff
 }
 
@@ -465,17 +474,11 @@ func (ethash *Ethash) Prepare(chain consensus.ChainReader, header *types.Header)
 // Finalize implements consensus.Engine, accumulating the block and uncle rewards,
 // setting the final state and assembling the block.
 func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, uncles []*types.Header, receipts []*types.Receipt) (*types.Block, error) {
-	if (header.Number.Cmp(egemSwitchBlock) == 1) {
 
-		// Accumulate any block and uncle rewards and commit the final state root
-		accumulateRewards2(chain.Config(), state, header, uncles)
-		header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
-
-		// Header seems complete, assemble into a block and return
-		return types.NewBlock(header, txs, uncles, receipts), nil
-
-	} else if (header.Number.Cmp(egemSwitchBlock2) == 1) {
-
+	a := header.Number.Uint64()
+	b := egemSwitchBlock
+	c := egemSwitchBlock2
+	if a > c {
 		// Accumulate any block and uncle rewards and commit the final state root
 		accumulateRewards3(chain.Config(), state, header, uncles)
 		header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
@@ -483,8 +486,15 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 		// Header seems complete, assemble into a block and return
 		return types.NewBlock(header, txs, uncles, receipts), nil
 
-	} else {
+	} else if a > b {
+		// Accumulate any block and uncle rewards and commit the final state root
+		accumulateRewards2(chain.Config(), state, header, uncles)
+		header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
 
+		// Header seems complete, assemble into a block and return
+		return types.NewBlock(header, txs, uncles, receipts), nil
+
+	} else {
 		// Accumulate any block and uncle rewards and commit the final state root
 		accumulateRewards(chain.Config(), state, header, uncles)
 		header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
@@ -494,12 +504,6 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 
 	}
 }
-
-// Some weird constants to avoid constant memory allocs for them.
-var (
-	big8  = big.NewInt(8)
-	big32 = big.NewInt(32)
-)
 
 // AccumulateRewards credits the coinbase of the given block with the mining
 // reward. The total reward consists of the static block reward and rewards for
