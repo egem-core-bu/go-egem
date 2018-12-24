@@ -81,8 +81,7 @@ var (
 	devFund3F												= common.HexToAddress("0xe485aA04bb231f331B85BF64614737c6495CC4b3") // jal
 	egemSwitchBlock2       					= uint64(1850000)          //  1.85m block transtiton
 	egemSwitchBlockB2      					*big.Int = big.NewInt(1850000)          //  1.85m block transtiton
-	egemSwitchBlock3      					= uint64(1950000)          //  1.95m block transtiton
-	egemSwitchBlockB3      					*big.Int = big.NewInt(1950000)          //  1.95m block transtiton
+	egemSwitchBlock3      					= uint64(1950000)          //  1.95m block transtiton for node fund fix.
 	nodeFund												= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644 ") // node multisig failed due to space.
 	nodeFundFixed										= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644")  // node multisig fixed space...
 )
@@ -482,7 +481,7 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 	b := egemSwitchBlock
 	c := egemSwitchBlock2
 	d := egemSwitchBlock3
-	
+
 	if a > d {
 		// Accumulate any block and uncle rewards and commit the final state root
 		accumulateRewards4(chain.Config(), state, header, uncles)
