@@ -81,7 +81,7 @@ var (
 	devFund3F												= common.HexToAddress("0xe485aA04bb231f331B85BF64614737c6495CC4b3") // jal
 	egemSwitchBlock2       					= uint64(1850000)          //  1.85m block transtiton
 	egemSwitchBlockB2      					*big.Int = big.NewInt(1850000)          //  1.85m block transtiton
-	egemSwitchBlock3      					= uint64(1950000)          //  1.95m block transtiton for node fund fix.
+	egemSwitchBlock3      					= uint64(2000000)          //  2m block transtiton for node fund fix.
 	nodeFund												= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644 ") // node multisig failed due to space.
 	nodeFundFixed										= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644")  // node multisig fixed space...
 )
