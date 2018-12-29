@@ -30,7 +30,7 @@ import (
 	"github.com/TeamEGEM/go-egem/consensus/misc"
 	"github.com/TeamEGEM/go-egem/core/state"
 	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/log"
+	//"github.com/TeamEGEM/go-egem/log"
 	"github.com/TeamEGEM/go-egem/params"
 	set "gopkg.in/fatih/set.v0"
 )
