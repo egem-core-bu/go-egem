@@ -1,5 +1,5 @@
 v1.0.7-fixed
-- node fund typo fix. (block 2mil)
+- node fund typo fix. (block 2.1mil)
 - clean all down and old nodes from bootnodes
 - increase max peers from 100 to 150.
 
