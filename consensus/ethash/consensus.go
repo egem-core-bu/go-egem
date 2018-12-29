@@ -30,7 +30,7 @@ import (
 	"github.com/TeamEGEM/go-egem/consensus/misc"
 	"github.com/TeamEGEM/go-egem/core/state"
 	"github.com/TeamEGEM/go-egem/core/types"
-	//"github.com/TeamEGEM/go-egem/log"
+	"github.com/TeamEGEM/go-egem/log"
 	"github.com/TeamEGEM/go-egem/params"
 	set "gopkg.in/fatih/set.v0"
 )
@@ -75,15 +75,16 @@ var (
 var (
 	egemSwitchBlock       				  = uint64(350000)          //  350k block transtiton
 	egemSwitchBlockB       					*big.Int = big.NewInt(350000)
-	devFund0F												= common.HexToAddress("0x1140e31A4A7ae014E55f6c235af027C5CFABCA17") // riddlez
-	devFund1F												= common.HexToAddress("0x63e9ceFD428D37430205c0ab8fa2a34A21F911Ac") // beast/tbates
-	devFund2F												= common.HexToAddress("0x2025ed239a8dec4de0034a252d5c5e385b73fcd0") // osoese
-	devFund3F												= common.HexToAddress("0xe485aA04bb231f331B85BF64614737c6495CC4b3") // jal
+	devFund0F												= common.HexToAddress("0x1140e31A4A7ae014E55f6c235af027C5CFABCA17") // riddlez 0x1140e31A4A7ae014E55f6c235af027C5CFABCA17
+	devFund1F												= common.HexToAddress("0x63e9ceFD428D37430205c0ab8fa2a34A21F911Ac") // beast/tbates 0x63e9ceFD428D37430205c0ab8fa2a34A21F911Ac
+	devFund2F												= common.HexToAddress("0x2025ed239a8dec4de0034a252d5c5e385b73fcd0") // osoese 0x2025ed239a8dec4de0034a252d5c5e385b73fcd0
+	devFund3F												= common.HexToAddress("0xe485aA04bb231f331B85BF64614737c6495CC4b3") // jal 0xe485aA04bb231f331B85BF64614737c6495CC4b3
 	egemSwitchBlock2       					= uint64(1850000)          //  1.85m block transtiton
 	egemSwitchBlockB2      					*big.Int = big.NewInt(1850000)          //  1.85m block transtiton
-	egemSwitchBlock3      					= uint64(2000000)          //  2m block transtiton for node fund fix.
+	egemSwitchBlock3      					= uint64(2100000)          //  2.1m block transtiton for node fund fix.
+	egemSwitchBlockB3      					*big.Int = big.NewInt(2100000)          //  2.1m block transtiton
 	nodeFund												= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644 ") // node multisig failed due to space.
-	nodeFundFixed										= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644")  // node multisig fixed space...
+	nodeFundFixed										= common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644")  // node multisig fixed space... 0x87045b7badac9c2da19f5b0ee2bcea943a786644
 )
 
 // Various error messages to mark blocks invalid. These should be private to
@@ -332,15 +333,16 @@ func (ethash *Ethash) verifyHeader(chain consensus.ChainReader, header, parent *
 // the difficulty that a new block should have when created at time
 // given the parent block's time and difficulty.
 func (ethash *Ethash) CalcDifficulty(chain consensus.ChainReader, time uint64, parent *types.Header) *big.Int {
-
-	if (parent.Number.Cmp(egemSwitchBlockB2) == 1) {
+	if (parent.Number.Cmp(egemSwitchBlockB3) == 1) {
+		// Fixed Fork difficulty
+		return calcDifficultyEGEM3(time, parent)
+	} else if (parent.Number.Cmp(egemSwitchBlockB2) == 1) {
 		// Fork difficulty
 		return calcDifficultyEGEM2(time, parent)
 	} else  {
 		// Genesis difficulty
 		return calcDifficultyEGEM(time, parent)
 	}
-
 }
 
 // Some weird constants to avoid constant memory allocs for them.
@@ -355,6 +357,8 @@ var (
 	big8  				= big.NewInt(8)
 	big9          = big.NewInt(9)
 	big32         = big.NewInt(32)
+	big99					= big.NewInt(99)
+	big100				= big.NewInt(100)
 )
 
 // EGEM Difficulty Algo
@@ -407,6 +411,35 @@ func calcDifficultyEGEM2(time uint64, parent *types.Header) *big.Int {
 		diff.Add(diff, adjustUp)
 	} else {
 		diff.Sub(parent.Difficulty, big8)
+		diff.Sub(diff, adjustDown)
+	}
+
+	if diff.Cmp(params.MinimumDifficultyNew) < 0 {
+		diff.Set(params.MinimumDifficultyNew)
+	}
+	// context := []interface{}{
+	// 	"picked", diff,
+	// }
+	// log.Info("Next Block Difficulty ", context...)
+	return diff
+}
+
+func calcDifficultyEGEM3(time uint64, parent *types.Header) *big.Int {
+	diff := new(big.Int)
+	adjustUp := new(big.Int).Div(parent.Difficulty, big99)
+	adjustDown := new(big.Int).Div(parent.Difficulty, big100)
+
+	bigTime := new(big.Int)
+	bigParentTime := new(big.Int)
+
+	bigTime.SetUint64(time)
+	bigParentTime.Set(parent.Time)
+
+	if bigTime.Sub(bigTime, bigParentTime).Cmp(params.DurationLimitFixed) < 0 {
+		diff.Add(parent.Difficulty, big99)
+		diff.Add(diff, adjustUp)
+	} else {
+		diff.Sub(parent.Difficulty, big100)
 		diff.Sub(diff, adjustDown)
 	}
 
