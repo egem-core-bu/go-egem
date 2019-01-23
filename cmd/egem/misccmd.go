@@ -108,7 +108,6 @@ func makedag(ctx *cli.Context) error {
 
 func version(ctx *cli.Context) error {
 	fmt.Println(strings.Title(clientIdentifier))
-	fmt.Println("Blockchain and sidechain combo, supported by quarrynodes.")
 	fmt.Println("Version:", params.Version)
 	if gitCommit != "" {
 		fmt.Println("Git Commit:", gitCommit)
@@ -120,21 +119,15 @@ func version(ctx *cli.Context) error {
 	fmt.Println("Operating System:", runtime.GOOS)
 	fmt.Printf("GOPATH=%s\n", os.Getenv("GOPATH"))
 	fmt.Printf("GOROOT=%s\n", runtime.GOROOT())
+	fmt.Println("----------------------------------------------------------------------")
 	fmt.Println("___________ __  .__                    ________                				")
 	fmt.Println("\\_   _____//  |_|  |__   ___________  /  _____/  ____   _____  				")
 	fmt.Println(" |    __)_\\   __\\  |  \\_/ __ \\_  __ \\/   \\  ____/ __ \\ /     \\ ")
 	fmt.Println(" |        \\|  | |   Y  \\  ___/|  | \\/\\    \\_\\  \\  ___/|  Y Y  \\")
 	fmt.Println("/_______  /|__| |___|  /\\___  >__|    \\______  /\\___  >__|_|  /			")
 	fmt.Println("        \\/           \\/     \\/               \\/     \\/      \\/ 	")
-	fmt.Println("▀█████████▄   ▄█        ▄██████▄   ▄████████    ▄█   ▄█▄  ▄████████    ▄█    █▄       ▄████████  ▄█  ███▄▄▄▄   ")
-	fmt.Println("  ███    ███ ███       ███    ███ ███    ███   ███ ▄███▀ ███    ███   ███    ███     ███    ███ ███  ███▀▀▀██▄ ")
-	fmt.Println("  ███    ███ ███       ███    ███ ███    █▀    ███▐██▀   ███    █▀    ███    ███     ███    ███ ███▌ ███   ███ ")
-	fmt.Println(" ▄███▄▄▄██▀  ███       ███    ███ ███         ▄█████▀    ███         ▄███▄▄▄▄███▄▄   ███    ███ ███▌ ███   ███ ")
-	fmt.Println("▀▀███▀▀▀██▄  ███       ███    ███ ███        ▀▀█████▄    ███        ▀▀███▀▀▀▀███▀  ▀███████████ ███▌ ███   ███ ")
-	fmt.Println("  ███    ██▄ ███       ███    ███ ███    █▄    ███▐██▄   ███    █▄    ███    ███     ███    ███ ███  ███   ███ ")
-	fmt.Println("  ███    ███ ███▌    ▄ ███    ███ ███    ███   ███ ▀███▄ ███    ███   ███    ███     ███    ███ ███  ███   ███ ")
-	fmt.Println("▄█████████▀  █████▄▄██  ▀██████▀  ████████▀    ███   ▀█▀ ████████▀    ███    █▀      ███    █▀  █▀    ▀█   █▀  ")
-	fmt.Println("             ▀                                 ▀                                                               ")
+	fmt.Println("----------------------------------------------------------------------")
+	fmt.Println("Blockchain and sidechain combo, supported by quarrynodes.")
 	return nil
 }
 
