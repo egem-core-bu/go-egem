@@ -45,6 +45,7 @@ import (
 	"github.com/TeamEGEM/go-egem/trie"
 	"github.com/hashicorp/golang-lru"
 	"gopkg.in/karalabe/cookiejar.v2/collections/prque"
+	//"github.com/google/go-cmp/cmp"
 )
 
 var (
@@ -1037,7 +1038,6 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 	err = nil
 	timeMap := make(map[uint64]int64)
 	tipOfTheMainChain := bc.CurrentBlock().NumberU64()
-	currentBlock := bc.CurrentBlock()
 
 	if !syncStatus {
 		if tipOfTheMainChain == blocks[0].NumberU64() - 1 {
@@ -1049,7 +1049,6 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 		}
 	}
 
-
 	if len(blocks) > 0 && bc.CurrentBlock().NumberU64() > uint64(params.TimeCapsuleBlock) {
 		if syncStatus && len(blocks) > int(params.TimeCapsuleLength) {
 			 for _, b := range blocks {
@@ -1057,6 +1056,7 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 			 }
 		}
 	}
+
 	p := make(PairList, len(timeMap))
 	index := 0
 	for k, v := range timeMap {
@@ -1069,7 +1069,7 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 		penalty += v.Value
 	}
 
-	multi := calculateMulti(bc.CurrentBlock().Difficulty().Uint64())
+	multi := calculateMulti(bc.CurrentBlock().Difficulty().Uint64(), bc.CurrentBlock().NumberU64())
 	penalty = penalty * int64(multi)
 
 	if penalty < 0 {
@@ -1077,7 +1077,7 @@ func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
 	}
 	//fmt.Println("Penalty value for the chain :", penalty)
 	context := []interface{}{
-		"synced", syncStatus, "number", tipOfTheMainChain, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty , "block_diff", currentBlock.Difficulty(), "implementation", "Pirl / EGEM",
+		"multi", multi, "synced", syncStatus, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty , "implementation", "Pirl / EGEM",
 	}
 
 	if penalty > 0 {
@@ -1110,7 +1110,12 @@ func calculatePenaltyTimeForBlock(tipOfTheMainChain , incomingBlock uint64) int6
 	return 0
 }
 
-func calculateMulti(diff uint64) uint64 {
+func calculateMulti(diff uint64, tipOfTheMainChain uint64) uint64 {
+	context := []interface{}{
+		"tipOfChain", tipOfTheMainChain,
+		"diff", diff,
+	}
+	log.Info("Block report", context... )
 
 	if diff <= 500000000 {
 		return 5
@@ -1523,13 +1528,18 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 			}
 		}
 	}
+
 	// Ensure the user sees large reorgs
 	if len(oldChain) > 0 && len(newChain) > 0 {
-		logFn := log.Debug
-		if len(oldChain) > 63 {
+		logFn := log.Info
+		msg := "Chain split detected"
+		if len(oldChain) < 10 {
+			logFn = log.Debug
+			msg = "Chain reorg detected"
+		} else if len(oldChain) >= 20 {
 			logFn = log.Warn
 		}
-		logFn("Chain split detected", "number", commonBlock.Number(), "hash", commonBlock.Hash(),
+		logFn(msg, "number", commonBlock.Number(), "hash", commonBlock.Hash(),
 			"drop", len(oldChain), "dropfrom", oldChain[0].Hash(), "add", len(newChain), "addfrom", newChain[0].Hash())
 	} else {
 		log.Error("Impossible reorg, please file an issue", "oldnum", oldBlock.Number(), "oldhash", oldBlock.Hash(), "newnum", newBlock.Number(), "newhash", newBlock.Hash())
