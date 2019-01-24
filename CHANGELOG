@@ -1,3 +1,16 @@
+___________ __  .__                    ________
+\_   _____//  |_|  |__   ___________  /  _____/  ____   _____
+ |    __)_\   __\  |  \_/ __ \_  __ \/   \  ____/ __ \ /     \
+ |        \|  | |   Y  \  ___/|  | \/\    \_\  \  ___/|  Y Y  \
+/_______  /|__| |___|  /\___  >__|    \______  /\___  >__|_|  /
+        \/           \/     \/               \/     \/      \/
+Changelog:
+
+v1.1.0
+- golang 1.11 compatible
+- version 2 of chain check for inserts/reorgs.
+- difficulty shown on block imports
+
 v1.0.7-fixed
 - node fund typo fix. (block 2.1mil)
 - clean all down and old nodes from bootnodes
