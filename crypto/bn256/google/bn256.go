@@ -235,9 +235,6 @@ func (n *G2) Marshal() []byte {
 	yxBytes := new(big.Int).Mod(n.p.y.x, P).Bytes()
 	yyBytes := new(big.Int).Mod(n.p.y.y, P).Bytes()
 
-	// Each value is a 256-bit number.
-	const numBytes = 256 / 8
-
 	ret := make([]byte, numBytes*4)
 	copy(ret[1*numBytes-len(xxBytes):], xxBytes)
 	copy(ret[2*numBytes-len(xyBytes):], xyBytes)
