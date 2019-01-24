@@ -23,7 +23,6 @@ import (
 	"io"
 	"math/big"
 	mrand "math/rand"
-	"sort"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -45,11 +44,15 @@ import (
 	"github.com/TeamEGEM/go-egem/trie"
 	"github.com/hashicorp/golang-lru"
 	"gopkg.in/karalabe/cookiejar.v2/collections/prque"
-	//"github.com/google/go-cmp/cmp"
 )
 
 var (
-	blockInsertTimer = metrics.NewRegisteredTimer("chain/inserts", nil)
+	blockInsertTimer     = metrics.NewRegisteredTimer("chain/inserts", nil)
+	blockValidationTimer = metrics.NewRegisteredTimer("chain/validation", nil)
+	blockExecutionTimer  = metrics.NewRegisteredTimer("chain/execution", nil)
+	blockWriteTimer      = metrics.NewRegisteredTimer("chain/write", nil)
+	blockReorgAddMeter   = metrics.NewRegisteredMeter("chain/reorg/drop", nil)
+	blockReorgDropMeter  = metrics.NewRegisteredMeter("chain/reorg/add", nil)
 
 	ErrNoGenesis = errors.New("Genesis not found in chain")
 )
@@ -1012,144 +1015,6 @@ func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.
 	return status, nil
 }
 
-// Chain check provided by PIRL and modified for EGEM.
-
-var syncStatus bool
-func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
-	// Copyright 2014 The go-ethereum Authors
-	// Copyright 2018 Pirl Sprl
-	// This file is part of the go-ethereum library modified with Pirl Security Protocol.
-	//
-	// The go-ethereum library is free software: you can redistribute it and/or modify
-	// it under the terms of the GNU Lesser General Public License as published by
-	// the Free Software Foundation, either version 3 of the License, or
-	// (at your option) any later version.
-	//
-	// The go-ethereum library is distributed in the hope that it will be useful,
-	// but WITHOUT ANY WARRANTY; without even the implied warranty of
-	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-	// GNU Lesser General Public License for more details.
-	//
-	// You should have received a copy of the GNU Lesser General Public License
-	// along with the go-ethereum library. If not, see http://www.gnu.org/licenses/.
-	// Package core implements the Ethereum consensus protocol modified with Pirl Security Protocol.
-
-	err := errors.New("")
-	err = nil
-	timeMap := make(map[uint64]int64)
-	tipOfTheMainChain := bc.CurrentBlock().NumberU64()
-
-	if !syncStatus {
-		if tipOfTheMainChain == blocks[0].NumberU64() - 1 {
-			//fmt.Println("We are synced")
-			syncStatus = true
-		} else {
-			//fmt.Println("Still syncing!")
-			syncStatus = false
-		}
-	}
-
-	if len(blocks) > 0 && bc.CurrentBlock().NumberU64() > uint64(params.TimeCapsuleBlock) {
-		if syncStatus && len(blocks) > int(params.TimeCapsuleLength) {
-			 for _, b := range blocks {
-			 	timeMap[b.NumberU64()] = calculatePenaltyTimeForBlock(tipOfTheMainChain, b.NumberU64())
-			 }
-		}
-	}
-
-	p := make(PairList, len(timeMap))
-	index := 0
-	for k, v := range timeMap {
-		p[index] = Pair {k, v}
-		index++
-	}
-	sort.Sort(p)
-	var penalty int64
-	for _, v := range p {
-		penalty += v.Value
-	}
-
-	multi := calculateMulti(bc.CurrentBlock().Difficulty().Uint64(), bc.CurrentBlock().NumberU64())
-	penalty = penalty * int64(multi)
-
-	if penalty < 0 {
-		penalty = 0
-	}
-	//fmt.Println("Penalty value for the chain :", penalty)
-	context := []interface{}{
-		"multi", multi, "synced", syncStatus, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty , "implementation", "Pirl / EGEM",
-	}
-
-	if penalty > 0 {
-		context := []interface{}{
-			"penalty", penalty,
-		}
-		log.Error("Chain is a malicious and we should reject it", context... )
-		err = ErrDelayTooHigh
-	} else {
-		log.Info("Checking legitimacy of new segment", context... )
-	}
-
-	if penalty == 0 {
-		err = nil
-	}
-
-	return err
-}
-
-func calculatePenaltyTimeForBlock(tipOfTheMainChain , incomingBlock uint64) int64 {
-	if incomingBlock < tipOfTheMainChain {
-		return int64(tipOfTheMainChain - incomingBlock)
-	}
-	if incomingBlock == tipOfTheMainChain {
-		return 0
-	}
-	if incomingBlock > tipOfTheMainChain {
-		return -1
-	}
-	return 0
-}
-
-func calculateMulti(diff uint64, tipOfTheMainChain uint64) uint64 {
-	context := []interface{}{
-		"tipOfChain", tipOfTheMainChain,
-		"diff", diff,
-	}
-	log.Info("Block report", context... )
-
-	if diff <= 500000000 {
-		return 5
-	}
-	if diff >= 500000000 && diff < 20000000000 {
-		return 4
-	}
-	if diff >= 20000000000 && diff < 30000000000 {
-		return 3
-	}
-	if diff >= 30000000000 && diff < 50000000000 {
-		return 2
-	}
-	if diff >= 50000000000 {
-		return 1
-	}
-	return 1
-}
-
-// A data structure to hold key/value pairs
-type Pair struct {
-	Key   uint64
-	Value int64
-}
-
-// A slice of pairs that implements sort.Interface to sort by values
-type PairList []Pair
-
-func (p PairList) Len() int           { return len(p) }
-func (p PairList) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
-func (p PairList) Less(i, j int) bool { return p[i].Key < p[j].Key }
-
-// End of chain check.
-
 // WriteBlockAddrTxIndexesBatch builds indexes for a given range of blocks N. It writes batches at increment 'step'.
 // If any error occurs during db writing it will be returned immediately.
 // It's sole implementation is the command 'atxi-build', since we must use individual block atxi indexing during
@@ -1235,8 +1100,9 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 	}
 	abort, results := bc.engine.VerifyHeaders(bc, headers, seals)
 	defer close(abort)
+
 	//chaincheck
-	errChain := bc.checkChainForAttack(chain)
+	errChain := bc.CheckDelayedChain(chain, false, true)
 	if errChain != nil {
 		fmt.Println(errChain.Error())
 	}
@@ -1429,7 +1295,7 @@ func (st *insertStats) report(chain []*types.Block, index int, cache common.Stor
 		context := []interface{}{
 			"blocks", st.processed, "txs", txs, "mgas", float64(st.usedGas) / 1000000,
 			"elapsed", common.PrettyDuration(elapsed), "mgasps", float64(st.usedGas) * 1000 / float64(elapsed),
-			"number", end.Number(), "hash", end.Hash(), "cache", cache,
+			"number", end.Number(), "hash", end.Hash(), "cache", cache, "diff", end.Difficulty(),
 		}
 		if st.queued > 0 {
 			context = append(context, []interface{}{"queued", st.queued}...)
@@ -1539,6 +1405,15 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 		} else if len(oldChain) >= 20 {
 			logFn = log.Warn
 		}
+
+		// Chain check to check delayed chain
+		err := bc.CheckDelayedChain(newChain, false, true)
+		if err == ErrDelayTooHigh {
+			return err
+		}
+
+		blockReorgAddMeter.Mark(int64(len(newChain)))
+		blockReorgDropMeter.Mark(int64(len(oldChain)))
 		logFn(msg, "number", commonBlock.Number(), "hash", commonBlock.Hash(),
 			"drop", len(oldChain), "dropfrom", oldChain[0].Hash(), "add", len(newChain), "addfrom", newChain[0].Hash())
 	} else {
