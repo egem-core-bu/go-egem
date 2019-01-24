@@ -33,6 +33,7 @@ import (
 	"github.com/TeamEGEM/go-egem/log"
 	"github.com/TeamEGEM/go-egem/p2p"
 	"github.com/TeamEGEM/go-egem/p2p/discover"
+	"github.com/TeamEGEM/go-egem/rpc"
 )
 
 const (
@@ -118,6 +119,10 @@ type Config struct {
 	// If the module list is empty, all RPC API endpoints designated public will be
 	// exposed.
 	HTTPModules []string `toml:",omitempty"`
+
+	// HTTPTimeouts allows for customization of the timeout values used by the HTTP RPC
+	// interface.
+	HTTPTimeouts rpc.HTTPTimeouts
 
 	// WSHost is the host interface on which to start the websocket RPC server. If
 	// this field is empty, no websocket API endpoint will be started.
