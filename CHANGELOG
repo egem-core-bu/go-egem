@@ -4,12 +4,16 @@ ___________ __  .__                    ________
  |        \|  | |   Y  \  ___/|  | \/\    \_\  \  ___/|  Y Y  \
 /_______  /|__| |___|  /\___  >__|    \______  /\___  >__|_|  /
         \/           \/     \/               \/     \/      \/
+                                                      egem.io
+-------------------------------------------------------------------
 Changelog:
+-------------------------------------------------------------------
 
 v1.1.0
 - golang 1.11 compatible
 - version 2 of chain check for inserts/reorgs.
 - difficulty shown on block imports
+- arm device compile fixes after golang update
 
 v1.0.7-fixed
 - node fund typo fix. (block 2.1mil)
@@ -39,3 +43,5 @@ v1.0.5
 - Default port changed from 8545 to 8895 to reduce ethereum mainnet conflicts.
 - Full 32bit chainId support for Trezor
 - If --quarrynode is enabled the option to use --unlock and --password are disabled.
+
+-------------------------------------------------------------------
