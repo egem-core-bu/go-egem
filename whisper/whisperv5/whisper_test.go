@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 func TestWhisperBasic(t *testing.T) {

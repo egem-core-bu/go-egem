@@ -20,8 +20,8 @@ package rawdb
 import (
 	"encoding/binary"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/metrics"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/metrics"
 )
 
 // The fields below define the low level database schema prefixing.

@@ -27,10 +27,10 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 var (

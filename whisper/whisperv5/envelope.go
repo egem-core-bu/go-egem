@@ -26,11 +26,11 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/crypto/ecies"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto/ecies"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // Envelope represents a clear-text data packet to transmit through the Whisper

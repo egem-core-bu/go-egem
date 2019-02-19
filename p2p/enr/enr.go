@@ -35,9 +35,9 @@ import (
 	"io"
 	"sort"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 const SizeLimit = 300 // maximum encoded size of a node record in bytes

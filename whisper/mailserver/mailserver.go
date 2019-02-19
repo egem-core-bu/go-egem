@@ -20,12 +20,12 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/rlp"
-	whisper "github.com/TeamEGEM/go-egem/whisper/whisperv6"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/rlp"
+	whisper "git.egem.io/team/go-egem/whisper/whisperv6"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )

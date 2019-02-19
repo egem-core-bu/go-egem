@@ -22,9 +22,9 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/console"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/console"
+	"git.egem.io/team/go-egem/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

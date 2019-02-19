@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 // Hash represents the 32 byte Keccak256 hash of arbitrary data.

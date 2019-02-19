@@ -27,7 +27,7 @@ The go-egem project comes with several wrappers/executables found in the `cmd` d
 
 | Command    | Description |
 |:----------:|-------------|
-| **`egem`** | Our main EGEM CLI client. It is the entry point into the EGEM network (main-, test- or private net), capable of running as a full node (default) archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Egem network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `egem --help` and the [CLI Wiki page](https://github.com/TeamEGEM/go-egem/wiki/Command-Line-Options) for command line options. |
+| **`egem`** | Our main EGEM CLI client. It is the entry point into the EGEM network (main-, test- or private net), capable of running as a full node (default) archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Egem network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `egem --help` and the [CLI Wiki page](https://git.egem.io/team/go-egem/wiki/Command-Line-Options) for command line options. |
 
 
 ## Running egem
@@ -92,7 +92,7 @@ Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containe
 As a developer, sooner rather than later you'll want to start interacting with EGEM and the EtherGem
 network via your own programs and not manually through the console. To aid this, EGEM has built in
 support for a JSON-RPC based APIs ([standard APIs](https://github.com/ethereum/wiki/wiki/JSON-RPC) and
-[Geth specific APIs](https://github.com/TeamEGEM/go-egem/wiki/Management-APIs)). These can be
+[Geth specific APIs](https://git.egem.io/team/go-egem/wiki/Management-APIs)). These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
 The IPC interface is enabled by default and exposes all the APIs supported by EGEM, whereas the HTTP

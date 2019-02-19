@@ -27,12 +27,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/p2p/simulations/adapters"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/simulations/adapters"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 // testService implements the node.Service interface and provides protocols

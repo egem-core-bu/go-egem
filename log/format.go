@@ -22,7 +22,7 @@ const (
 
 // locationTrims are trimmed for display to avoid unwieldy log lines.
 var locationTrims = []string{
-	"github.com/TeamEGEM/go-egem/",
+	"git.egem.io/team/go-egem/",
 }
 
 // PrintOrigins sets or unsets log location (file:line) printing for terminal

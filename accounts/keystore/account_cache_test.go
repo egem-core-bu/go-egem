@@ -29,8 +29,8 @@ import (
 
 	"github.com/cespare/cp"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/common"
 )
 
 var (

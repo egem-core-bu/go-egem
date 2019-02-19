@@ -25,17 +25,17 @@ import (
 	"os"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/miner"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/rlp"
-	"github.com/TeamEGEM/go-egem/rpc"
-	"github.com/TeamEGEM/go-egem/trie"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/miner"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/rlp"
+	"git.egem.io/team/go-egem/rpc"
+	"git.egem.io/team/go-egem/trie"
 )
 
 // PublicEthereumAPI provides an API to access Ethereum full node-related

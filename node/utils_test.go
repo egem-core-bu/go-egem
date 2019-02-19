@@ -22,8 +22,8 @@ package node
 import (
 	"reflect"
 
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 // NoopService is a trivial implementation of the Service interface.

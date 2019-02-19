@@ -23,10 +23,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/consensus/ethash"
-	"github.com/TeamEGEM/go-egem/eth"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/consensus/ethash"
+	"git.egem.io/team/go-egem/eth"
+	"git.egem.io/team/go-egem/params"
 	"gopkg.in/urfave/cli.v1"
 )
 

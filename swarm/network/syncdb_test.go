@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/swarm/storage"
 )
 
 func init() {

@@ -19,7 +19,7 @@ package trie
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 // MissingNodeError is returned by the trie functions (TryGet, TryUpdate, TryDelete)

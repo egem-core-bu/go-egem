@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/params"
 )
 
 type account struct{}

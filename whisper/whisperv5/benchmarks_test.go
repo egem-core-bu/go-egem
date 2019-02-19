@@ -19,7 +19,7 @@ package whisperv5
 import (
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 func BenchmarkDeriveKeyMaterial(b *testing.B) {

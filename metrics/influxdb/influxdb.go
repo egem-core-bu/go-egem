@@ -6,7 +6,7 @@ import (
 	uurl "net/url"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/metrics"
+	"git.egem.io/team/go-egem/metrics"
 	"github.com/influxdata/influxdb/client"
 )
 

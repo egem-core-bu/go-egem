@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/swarm/storage"
 )
 
 //metrics variables

@@ -22,8 +22,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 	"github.com/syndtr/goleveldb/leveldb/filter"

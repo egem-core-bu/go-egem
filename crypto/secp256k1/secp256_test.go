@@ -24,8 +24,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/crypto/randentropy"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/crypto/randentropy"
 )
 
 const TestCount = 1000

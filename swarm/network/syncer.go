@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/swarm/storage"
 )
 
 // syncer parameters (global, not peer specific) default values

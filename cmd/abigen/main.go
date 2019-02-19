@@ -24,8 +24,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/accounts/abi/bind"
-	"github.com/TeamEGEM/go-egem/common/compiler"
+	"git.egem.io/team/go-egem/accounts/abi/bind"
+	"git.egem.io/team/go-egem/common/compiler"
 )
 
 var (

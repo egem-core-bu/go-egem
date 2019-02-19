@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 var (
@@ -59,7 +59,6 @@ var (
 		ByzantiumBlock:      nil,
 		ConstantinopleBlock: nil,
 		Ethash:              new(EthashConfig),
-
 	}
 
 	// RinkebyChainConfig contains the chain parameters to run a node on the Rinkeby test network.

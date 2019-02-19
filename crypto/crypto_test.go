@@ -25,7 +25,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 var testAddrHex = "970e8128ab834e8eac17ab8e3812f010678cf791"

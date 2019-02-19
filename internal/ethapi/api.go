@@ -25,21 +25,21 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/accounts/keystore"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/consensus/ethash"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/rlp"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/accounts/keystore"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/consensus/ethash"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/rlp"
+	"git.egem.io/team/go-egem/rpc"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )
@@ -421,7 +421,7 @@ func signHash(data []byte) []byte {
 //
 // The key used to calculate the signature is decrypted with the given password.
 //
-// https://github.com/TeamEGEM/go-egem/wiki/Management-APIs#personal_sign
+// https://git.egem.io/team/go-egem/wiki/Management-APIs#personal_sign
 func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr common.Address, passwd string) (hexutil.Bytes, error) {
 	// Look up the wallet containing the requested signer
 	account := accounts.Account{Address: addr}
@@ -448,7 +448,7 @@ func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr c
 // Note, the signature must conform to the secp256k1 curve R, S and V values, where
 // the V value must be be 27 or 28 for legacy reasons.
 //
-// https://github.com/TeamEGEM/go-egem/wiki/Management-APIs#personal_ecRecover
+// https://git.egem.io/team/go-egem/wiki/Management-APIs#personal_ecRecover
 func (s *PrivateAccountAPI) EcRecover(ctx context.Context, data, sig hexutil.Bytes) (common.Address, error) {
 	if len(sig) != 65 {
 		return common.Address{}, fmt.Errorf("signature must be 65 bytes long")

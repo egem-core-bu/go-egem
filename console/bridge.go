@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts/usbwallet"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/accounts/usbwallet"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/rpc"
 	"github.com/robertkrimen/otto"
 )
 

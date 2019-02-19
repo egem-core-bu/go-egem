@@ -21,10 +21,10 @@ import (
 	"io"
 	"os"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // errNoActiveJournal is returned if a transaction is attempted to be inserted

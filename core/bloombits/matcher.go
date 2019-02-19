@@ -26,8 +26,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common/bitutil"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/common/bitutil"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 // bloomIndexes represents the bit indexes inside the bloom filter that belong

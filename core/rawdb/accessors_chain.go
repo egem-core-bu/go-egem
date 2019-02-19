@@ -21,10 +21,10 @@ import (
 	"encoding/binary"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // ReadCanonicalHash retrieves the hash assigned to a canonical block number.

@@ -16,7 +16,7 @@
 
 package ethclient
 
-import "github.com/TeamEGEM/go-egem"
+import "git.egem.io/team/go-egem"
 
 // Verify that Client implements the ethereum interfaces.
 var (

@@ -5,7 +5,7 @@ package whisperv6
 import (
 	"encoding/json"
 
-	"github.com/TeamEGEM/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/common/hexutil"
 )
 
 var _ = (*newMessageOverride)(nil)

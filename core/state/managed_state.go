@@ -19,7 +19,7 @@ package state
 import (
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 type account struct {

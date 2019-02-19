@@ -21,8 +21,8 @@ import (
 
 	"sync/atomic"
 
-	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/consensus"
+	"git.egem.io/team/go-egem/log"
 )
 
 type CpuAgent struct {

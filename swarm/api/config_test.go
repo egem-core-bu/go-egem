@@ -20,8 +20,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 func TestConfig(t *testing.T) {

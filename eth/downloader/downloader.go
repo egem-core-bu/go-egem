@@ -25,15 +25,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	ethereum "github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/params"
+	ethereum "git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/params"
 )
 
 var (

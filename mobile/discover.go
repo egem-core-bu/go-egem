@@ -22,7 +22,7 @@ package geth
 import (
 	"errors"
 
-	"github.com/TeamEGEM/go-egem/p2p/discv5"
+	"git.egem.io/team/go-egem/p2p/discv5"
 )
 
 // Enode represents a host on the network.

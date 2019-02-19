@@ -33,10 +33,10 @@ import (
 	"unsafe"
 
 	mmap "github.com/edsrzf/mmap-go"
-	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/consensus"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/rpc"
 	"github.com/hashicorp/golang-lru/simplelru"
 )
 

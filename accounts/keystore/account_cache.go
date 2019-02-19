@@ -27,9 +27,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
 	"gopkg.in/fatih/set.v0"
 )
 

@@ -19,7 +19,7 @@ package p2p
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/discover"
 )
 
 // Protocol represents a P2P subprotocol implementation.

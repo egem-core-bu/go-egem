@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 func TestSet(t *testing.T) {

@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/crypto/sha3"
 )
 
 /*

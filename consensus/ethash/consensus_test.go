@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/params"
 )
 
 type diffTest struct {

@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 	"github.com/stretchr/testify/require"
 )
 

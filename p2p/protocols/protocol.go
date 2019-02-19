@@ -34,7 +34,7 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p"
 )
 
 // error codes used by this  protocol scheme

@@ -26,8 +26,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
 )
 
 // nodeDockerfile is the Dockerfile required to run an Ethereum node.

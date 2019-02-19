@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // Enabled is checked by the constructor functions for all of the

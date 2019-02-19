@@ -17,9 +17,9 @@
 package vm
 
 import (
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/params"
 )
 
 // memoryGasCosts calculates the quadratic gas for memory expansion. It does so

@@ -33,11 +33,11 @@ import (
 	"time"
 
 	"github.com/elastic/gosigar"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/rpc"
 	"golang.org/x/net/websocket"
 )
 

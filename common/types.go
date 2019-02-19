@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"reflect"
 
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/crypto/sha3"
 )
 
 const (

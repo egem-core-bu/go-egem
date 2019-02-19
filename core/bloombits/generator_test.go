@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // Tests that batched bloom bits are correctly rotated from the input bloom

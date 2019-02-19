@@ -26,13 +26,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/internal/debug"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/internal/debug"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 

@@ -26,7 +26,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common/mclock"
+	"git.egem.io/team/go-egem/common/mclock"
 )
 
 var (

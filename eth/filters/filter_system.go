@@ -25,12 +25,12 @@ import (
 	"sync"
 	"time"
 
-	ethereum "github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/rpc"
+	ethereum "git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 // Type determines the kind of filter and is used to put the filter in to

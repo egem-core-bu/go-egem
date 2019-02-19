@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 type bytesBacked interface {

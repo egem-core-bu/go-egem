@@ -35,11 +35,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/swarm/api"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/swarm/api"
+	"git.egem.io/team/go-egem/swarm/storage"
 	"github.com/rs/cors"
 )
 

@@ -17,10 +17,10 @@
 package clique
 
 import (
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/consensus"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 // API is a user facing RPC API to allow controlling the signer and voting

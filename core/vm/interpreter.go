@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/params"
 )
 
 // Config are the configuration options for the Interpreter

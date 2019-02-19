@@ -22,12 +22,12 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/params"
 )
 
 type testerVote struct {

@@ -28,9 +28,9 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/TeamEGEM/go-egem/internal/jsre"
-	"github.com/TeamEGEM/go-egem/internal/web3ext"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/internal/jsre"
+	"git.egem.io/team/go-egem/internal/web3ext"
+	"git.egem.io/team/go-egem/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 	"github.com/robertkrimen/otto"

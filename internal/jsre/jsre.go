@@ -26,8 +26,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/internal/jsre/deps"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/internal/jsre/deps"
 	"github.com/robertkrimen/otto"
 )
 

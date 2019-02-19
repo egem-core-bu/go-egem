@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/TeamEGEM/go-egem/accounts/keystore"
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/accounts/keystore"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

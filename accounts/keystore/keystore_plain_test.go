@@ -27,8 +27,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 func tmpKeyStoreIface(t *testing.T, encrypted bool) (dir string, ks keyStore) {

@@ -19,8 +19,8 @@ package trie
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
 )
 
 // SecureTrie wraps a trie with key hashing. In a secure trie, all

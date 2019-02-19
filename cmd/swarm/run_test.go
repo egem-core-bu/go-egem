@@ -27,13 +27,13 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/accounts/keystore"
-	"github.com/TeamEGEM/go-egem/internal/cmdtest"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/rpc"
-	"github.com/TeamEGEM/go-egem/swarm"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/accounts/keystore"
+	"git.egem.io/team/go-egem/internal/cmdtest"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/rpc"
+	"git.egem.io/team/go-egem/swarm"
 )
 
 func init() {

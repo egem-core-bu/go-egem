@@ -22,13 +22,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/mclock"
-	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/light"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/mclock"
+	"git.egem.io/team/go-egem/consensus"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/light"
+	"git.egem.io/team/go-egem/log"
 )
 
 const (

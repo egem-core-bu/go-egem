@@ -19,8 +19,8 @@ package vm
 import (
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/math"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/math"
 )
 
 // calculates the memory size required for a step

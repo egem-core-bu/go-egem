@@ -22,8 +22,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // NotFound is returned by API methods if the requested item does not exist.

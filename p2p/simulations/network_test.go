@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/p2p/simulations/adapters"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/simulations/adapters"
 )
 
 // TestNetworkSimulation creates a multi-node simulation network with each node

@@ -24,8 +24,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/p2p"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured

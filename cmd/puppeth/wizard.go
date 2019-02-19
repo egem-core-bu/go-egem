@@ -30,9 +30,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/log"
 	"golang.org/x/crypto/ssh/terminal"
 )
 

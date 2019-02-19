@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

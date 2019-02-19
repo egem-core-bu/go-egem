@@ -26,11 +26,11 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/crypto/secp256k1"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto/secp256k1"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // Constants to match up protocol versions and messages

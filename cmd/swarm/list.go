@@ -22,8 +22,8 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	swarm "github.com/TeamEGEM/go-egem/swarm/api/client"
+	"git.egem.io/team/go-egem/cmd/utils"
+	swarm "git.egem.io/team/go-egem/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

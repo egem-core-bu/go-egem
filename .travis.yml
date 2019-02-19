@@ -1,5 +1,5 @@
 language: go
-go_import_path: github.com/TeamEGEM/go-egem
+go_import_path: git.egem.io/team/go-egem
 sudo: false
 matrix:
   include:

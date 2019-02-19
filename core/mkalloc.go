@@ -34,8 +34,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

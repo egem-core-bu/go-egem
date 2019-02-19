@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 var (

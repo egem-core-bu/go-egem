@@ -23,8 +23,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
 )
 
 //metrics variables

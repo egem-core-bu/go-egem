@@ -19,7 +19,7 @@ package number
 import (
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 var tt256 = new(big.Int).Lsh(big.NewInt(1), 256)

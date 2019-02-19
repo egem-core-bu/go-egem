@@ -40,7 +40,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 var dumpEnc bool

@@ -23,9 +23,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/TeamEGEM/go-egem/accounts/keystore"
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/accounts/keystore"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/crypto"
 	"github.com/pborman/uuid"
 	"gopkg.in/urfave/cli.v1"
 )

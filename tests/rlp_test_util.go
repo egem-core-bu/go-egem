@@ -24,7 +24,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // RLPTest is the JSON structure of a single RLP test.

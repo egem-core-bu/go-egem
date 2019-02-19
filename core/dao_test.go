@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/consensus/ethash"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/consensus/ethash"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/params"
 )
 
 // Tests that DAO-fork enabled clients can properly filter out fork-commencing

@@ -25,15 +25,15 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 //go:generate gencodec -type Genesis -field-override genesisSpecMarshaling -out gen_genesis.go

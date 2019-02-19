@@ -24,9 +24,9 @@ import (
 	"io"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/bmt"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/bmt"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto/sha3"
 )
 
 type Hasher func() hash.Hash

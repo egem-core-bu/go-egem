@@ -29,7 +29,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 	"golang.org/x/net/websocket"
 	"gopkg.in/fatih/set.v0"
 )

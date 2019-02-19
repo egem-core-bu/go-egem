@@ -27,12 +27,12 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/internal/debug"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/internal/debug"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 const (

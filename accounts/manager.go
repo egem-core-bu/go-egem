@@ -21,7 +21,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/event"
+	"git.egem.io/team/go-egem/event"
 )
 
 // Manager is an overarching account manager that can communicate with various

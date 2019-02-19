@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/core/asm"
+	"git.egem.io/team/go-egem/core/asm"
 )
 
 func Compile(fn string, src []byte, debug bool) (string, error) {

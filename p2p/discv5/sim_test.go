@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 // In this test, nodes try to randomly resolve each other.

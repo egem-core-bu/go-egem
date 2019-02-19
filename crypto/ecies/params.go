@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "github.com/TeamEGEM/go-egem/crypto"
+	ethcrypto "git.egem.io/team/go-egem/crypto"
 )
 
 var (

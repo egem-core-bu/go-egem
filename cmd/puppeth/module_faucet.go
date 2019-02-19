@@ -26,8 +26,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
 )
 
 // faucetDockerfile is the Dockerfile required to build an faucet container to

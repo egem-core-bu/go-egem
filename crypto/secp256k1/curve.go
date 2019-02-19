@@ -36,7 +36,7 @@ import (
 	"math/big"
 	"unsafe"
 
-	"github.com/TeamEGEM/go-egem/common/math"
+	"git.egem.io/team/go-egem/common/math"
 )
 
 /*

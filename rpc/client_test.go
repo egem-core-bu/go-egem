@@ -31,7 +31,7 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 func TestClientRequest(t *testing.T) {

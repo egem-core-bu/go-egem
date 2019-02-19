@@ -22,7 +22,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 // A BigInt represents a signed multi-precision integer.

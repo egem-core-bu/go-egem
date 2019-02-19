@@ -24,14 +24,14 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/consensus/misc"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/types"
-	//"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/consensus"
+	"git.egem.io/team/go-egem/consensus/misc"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/types"
+	//"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/params"
 	set "gopkg.in/fatih/set.v0"
 )
 

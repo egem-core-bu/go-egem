@@ -25,8 +25,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -244,7 +244,7 @@ func unpackTestEventData(dest interface{}, hexData string, jsonEvent []byte, ass
 
 /*
 Taken from
-https://github.com/TeamEGEM/go-egem/pull/15568
+https://git.egem.io/team/go-egem/pull/15568
 */
 
 type testResult struct {

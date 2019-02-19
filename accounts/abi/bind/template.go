@@ -16,7 +16,7 @@
 
 package bind
 
-import "github.com/TeamEGEM/go-egem/accounts/abi"
+import "git.egem.io/team/go-egem/accounts/abi"
 
 // tmplData is the data structure required to fill the binding template.
 type tmplData struct {

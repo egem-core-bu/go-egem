@@ -27,10 +27,10 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/crypto/ecies"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto/ecies"
+	"git.egem.io/team/go-egem/log"
 )
 
 // Options specifies the exact way a message should be wrapped into an Envelope.

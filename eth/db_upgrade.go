@@ -21,11 +21,11 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 var deduplicateData = []byte("dbUpgrade_20170714deduplicateData")

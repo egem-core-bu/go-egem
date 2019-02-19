@@ -26,11 +26,11 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/swarm/api"
-	swarm "github.com/TeamEGEM/go-egem/swarm/api/client"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
-	"github.com/TeamEGEM/go-egem/swarm/testutil"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/swarm/api"
+	swarm "git.egem.io/team/go-egem/swarm/api/client"
+	"git.egem.io/team/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/swarm/testutil"
 )
 
 func TestBzzGetPath(t *testing.T) {

@@ -35,12 +35,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/crypto/ecies"
-	"github.com/TeamEGEM/go-egem/crypto/secp256k1"
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto/ecies"
+	"git.egem.io/team/go-egem/crypto/secp256k1"
+	"git.egem.io/team/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/rlp"
 	"github.com/golang/snappy"
 )
 

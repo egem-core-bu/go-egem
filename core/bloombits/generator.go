@@ -19,7 +19,7 @@ package bloombits
 import (
 	"errors"
 
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // errSectionOutOfBounds is returned if the user tried to add more bloom filters

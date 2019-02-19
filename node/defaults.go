@@ -22,9 +22,9 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/nat"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/nat"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 const (

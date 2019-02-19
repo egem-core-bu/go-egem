@@ -25,7 +25,7 @@ import (
 
 	"golang.org/x/net/html"
 
-	"github.com/TeamEGEM/go-egem/swarm/testutil"
+	"git.egem.io/team/go-egem/swarm/testutil"
 )
 
 func TestError(t *testing.T) {

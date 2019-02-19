@@ -25,7 +25,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // ethstatsDockerfile is the Dockerfile required to build an ethstats backend

@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/common/hexutil"
 )
 
 // Tests that data bitset encoding and decoding works and is bijective.

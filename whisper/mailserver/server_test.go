@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
-	whisper "github.com/TeamEGEM/go-egem/whisper/whisperv6"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
+	whisper "git.egem.io/team/go-egem/whisper/whisperv6"
 )
 
 const powRequirement = 0.00001

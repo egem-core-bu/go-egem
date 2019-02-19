@@ -23,17 +23,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/eth"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/light"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/eth"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/light"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 type odrTestFn func(ctx context.Context, db ethdb.Database, config *params.ChainConfig, bc *core.BlockChain, lc *light.LightChain, bhash common.Hash) []byte

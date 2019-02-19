@@ -45,12 +45,12 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/p2p/simulations"
-	"github.com/TeamEGEM/go-egem/p2p/simulations/adapters"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/simulations"
+	"git.egem.io/team/go-egem/p2p/simulations/adapters"
+	"git.egem.io/team/go-egem/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

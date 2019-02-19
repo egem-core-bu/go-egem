@@ -22,9 +22,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/log"
 	"github.com/karalabe/hid"
 )
 

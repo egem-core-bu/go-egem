@@ -23,11 +23,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/log"
 )
 
 // ChainIndexerBackend defines the methods needed to process chain segments in

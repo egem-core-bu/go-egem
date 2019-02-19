@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/p2p/discover"
 )
 
 type TestPeer interface {

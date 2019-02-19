@@ -23,13 +23,13 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/TeamEGEM/go-egem/consensus/ethash"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/trie"
+	"git.egem.io/team/go-egem/consensus/ethash"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/trie"
 )
 
 func TestNodeIterator(t *testing.T) {

@@ -17,7 +17,7 @@
 package fuse
 
 import (
-	"github.com/TeamEGEM/go-egem/swarm/api"
+	"git.egem.io/team/go-egem/swarm/api"
 	"sync"
 	"time"
 )

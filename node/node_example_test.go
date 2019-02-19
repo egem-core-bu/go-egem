@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for

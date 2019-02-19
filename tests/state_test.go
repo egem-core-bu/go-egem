@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/core/vm"
+	"git.egem.io/team/go-egem/core/vm"
 )
 
 func TestState(t *testing.T) {

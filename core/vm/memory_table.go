@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common/math"
+	"git.egem.io/team/go-egem/common/math"
 )
 
 func memorySha3(stack *Stack) *big.Int {

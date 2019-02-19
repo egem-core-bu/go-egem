@@ -17,8 +17,8 @@
 package les
 
 import (
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/p2p"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/p2p"
 )
 
 var (

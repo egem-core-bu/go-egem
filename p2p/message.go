@@ -25,9 +25,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // Msg defines the structure of a p2p message.

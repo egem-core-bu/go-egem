@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts/keystore"
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem/accounts/keystore"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // Tests that the account management snippets work correctly.
