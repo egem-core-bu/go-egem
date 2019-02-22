@@ -27,7 +27,8 @@ The go-egem project comes with several wrappers/executables found in the `cmd` d
 
 | Command    | Description |
 |:----------:|-------------|
-| **`egem`** | Our main EGEM CLI client. It is the entry point into the EGEM network (main-, test- or private net), capable of running as a full node (default) archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Egem network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `egem --help` and the [CLI Wiki page](https://git.egem.io/team/go-egem/wiki/Command-Line-Options) for command line options. |
+| **`egem`** | Our main EGEM CLI client. It is the entry point into the EGEM network. |
+| **`stats`** | Quarrynode JSON output for usage with our system. |
 
 
 ## Running egem
