@@ -29,7 +29,7 @@ var (
 	Connect string
 	// Port pick one or set it as -port "none"
 	Port string
-	// Polling
+	// Polling rate to report to blocks
 	Polling int
 )
 
