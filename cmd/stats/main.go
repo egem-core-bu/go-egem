@@ -72,7 +72,7 @@ func main() {
 	var err error
 	egem.Server = Connect + ":" + Port
 	if Polling == 0 {
-		delay = 300
+		delay = 3000
 	}
 	if Polling != 0 {
 		delay = Polling
@@ -105,6 +105,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 }
 
 // CalculateTotals will do some work.
@@ -172,7 +173,7 @@ func MetricsHTTP(w http.ResponseWriter, r *http.Request) {
 	block := egem.CurrentBlock
 	if block == nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(fmt.Sprintf("issue receiving block from URL: %v", egem.Server)))
+		w.Write([]byte(fmt.Sprintf("issue receiving stats from Quarrynode: %v", egem.Server)))
 		return
 	}
 	CalculateTotals(block)
