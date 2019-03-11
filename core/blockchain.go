@@ -51,8 +51,6 @@ var (
 	blockValidationTimer = metrics.NewRegisteredTimer("chain/validation", nil)
 	blockExecutionTimer  = metrics.NewRegisteredTimer("chain/execution", nil)
 	blockWriteTimer      = metrics.NewRegisteredTimer("chain/write", nil)
-	blockReorgAddMeter   = metrics.NewRegisteredMeter("chain/reorg/drop", nil)
-	blockReorgDropMeter  = metrics.NewRegisteredMeter("chain/reorg/add", nil)
 
 	ErrNoGenesis = errors.New("Genesis not found in chain")
 )
@@ -134,7 +132,6 @@ type BlockChain struct {
 	vmConfig  vm.Config
 
 	badBlocks *lru.Cache // Bad block cache
-
 
 	atxi *AtxiT // (issue #58)
 }
@@ -1022,18 +1019,18 @@ func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.
 func (bc *BlockChain) WriteBlockAddrTxIndexesBatch(config *params.ChainConfig, indexDb ethdb.Database, startBlockN, stopBlockN, stepN uint64) (txsCount int, err error) {
 	block := bc.GetBlockByNumber(startBlockN)
 	batch := indexDb.NewBatch()
- 	blockProcessedCount := uint64(0)
+	blockProcessedCount := uint64(0)
 	blockProcessedHead := func() uint64 {
 		return startBlockN + blockProcessedCount
 	}
- 	for block != nil && blockProcessedHead() <= stopBlockN {
+	for block != nil && blockProcessedHead() <= stopBlockN {
 		txP, err := putBlockAddrTxsToBatch(config, batch, block)
 		if err != nil {
 			return txsCount, err
 		}
 		txsCount += txP
 		blockProcessedCount++
- 		// Write on stepN mod
+		// Write on stepN mod
 		if blockProcessedCount%stepN == 0 {
 			if err := batch.Write(); err != nil {
 				return txsCount, err
@@ -1043,7 +1040,7 @@ func (bc *BlockChain) WriteBlockAddrTxIndexesBatch(config *params.ChainConfig, i
 		}
 		block = bc.GetBlockByNumber(blockProcessedHead())
 	}
- 	// This will put the last batch
+	// This will put the last batch
 	return txsCount, batch.Write()
 }
 
@@ -1101,11 +1098,7 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 	abort, results := bc.engine.VerifyHeaders(bc, headers, seals)
 	defer close(abort)
 
-	//chaincheck
-	errChain := bc.CheckDelayedChain(chain, false, true)
-	if errChain != nil {
-		fmt.Println(errChain.Error())
-	}
+	errChain := bc.checkChainForAttack(chain)
 
 	// Iterate over the blocks and insert when the verifier permits
 	for i, block := range chain {
@@ -1125,6 +1118,7 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 		err := <-results
 		//chaincheck
 		err = errChain
+
 		if err == nil {
 			err = bc.Validator().ValidateBody(block)
 		}
@@ -1136,7 +1130,6 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 				stats.ignored++
 				continue
 			}
-
 		case err == consensus.ErrFutureBlock:
 			// Allow up to MaxFuture second in the future blocks. If this limit is exceeded
 			// the chain is discarded and processed at a later time if given.
@@ -1406,14 +1399,6 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 			logFn = log.Warn
 		}
 
-		// Chain check to check delayed chain
-		err := bc.CheckDelayedChain(newChain, false, true)
-		if err == ErrDelayTooHigh {
-			return err
-		}
-
-		blockReorgAddMeter.Mark(int64(len(newChain)))
-		blockReorgDropMeter.Mark(int64(len(oldChain)))
 		logFn(msg, "number", commonBlock.Number(), "hash", commonBlock.Hash(),
 			"drop", len(oldChain), "dropfrom", oldChain[0].Hash(), "add", len(newChain), "addfrom", newChain[0].Hash())
 	} else {
@@ -1422,6 +1407,7 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 	// Insert the new chain, taking care of the proper incremental order
 	var addedTxs types.Transactions
 	for i := len(newChain) - 1; i >= 0; i-- {
+
 		// insert the block in the canonical way, re-writing history
 		bc.insert(newChain[i])
 		// write lookup entries for hash based transaction/receipt searches

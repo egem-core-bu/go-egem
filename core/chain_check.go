@@ -20,114 +20,145 @@
 package core
 
 import (
+	"errors"
+	"sort"
 
-  "git.egem.io/team/go-egem/common"
-	"git.egem.io/team/go-egem/core/rawdb"
 	"git.egem.io/team/go-egem/core/types"
 	"git.egem.io/team/go-egem/log"
-  "git.egem.io/team/go-egem/metrics"
 	"git.egem.io/team/go-egem/params"
 )
 
-var syncing bool
+var syncStatus bool
 
-const (
-	description         = "Chain Check (based on the PirlGuard by Pirl Team, Modified by Hackmod, Modified By Riddlez)"
-	delayedBlockInfoLen = 3
-	delayedBlockWarnLen = 15
-)
+func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
+	// Copyright 2014 The go-ethereum Authors
+	// Copyright 2018 Pirl Sprl
+	// This file is part of the go-ethereum library modified with Pirl Security Protocol.
+	//
+	// The go-ethereum library is free software: you can redistribute it and/or modify
+	// it under the terms of the GNU Lesser General Public License as published by
+	// the Free Software Foundation, either version 3 of the License, or
+	// (at your option) any later version.
+	//
+	// The go-ethereum library is distributed in the hope that it will be useful,
+	// but WITHOUT ANY WARRANTY; without even the implied warranty of
+	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	// GNU Lesser General Public License for more details.
+	//
+	// You should have received a copy of the GNU Lesser General Public License
+	// along with the go-ethereum library. If not, see http://www.gnu.org/licenses/.
+	// Package core implements the Ethereum consensus protocol modified with Pirl Security Protocol.
 
-var (
-	blockDelayedMeter = metrics.NewRegisteredMeter("chain/block/delayed", nil)
-	blockPenaltyMeter = metrics.NewRegisteredMeter("chain/block/penalty", nil)
-)
+	err := errors.New("")
+	err = nil
+	timeMap := make(map[uint64]int64)
+	tipOfTheMainChain := bc.CurrentBlock().NumberU64()
 
-// CheckDelayedChain will check possible 51% attack.
-// Penalty System penalize newly inserted blocks.
-// The amount of penalty depends on the amount of blocks mined by the malicious miner privatly.
-func (bc *BlockChain) CheckDelayedChain(blocks types.Blocks, logonly, reverse bool) error {
-	current := bc.CurrentBlock().NumberU64()
-
-	if !syncing {
-		head := rawdb.ReadHeadBlockHash(bc.db)
-		if head == (common.Hash{}) {
-			// Corrupt or empty database.
-			return nil
+	if !syncStatus {
+		if tipOfTheMainChain == blocks[0].NumberU64()-1 {
+			//fmt.Println("We are synced")
+			syncStatus = true
+		} else {
+			//fmt.Println("Still syncing!")
+			syncStatus = false
 		}
-		// Get current block
-		currentBlock := bc.GetBlockByHash(head)
-		if currentBlock == nil {
-			// Corrupt or empty database.
-			return nil
-		}
-		// Get current fast block
-		currentFastBlock := bc.CurrentFastBlock()
-
-		// Setup sync status
-		syncing = currentFastBlock.NumberU64() == currentBlock.NumberU64()
-		log.Info("sync status", "sync", syncing)
 	}
 
-	var penalty uint64
-  tipidx := 0
-  if reverse {
-    tipidx = len(blocks) - 1
-  }
-  if syncing && current > uint64(params.PenaltySystemBlock) && current > blocks[tipidx].NumberU64() && (current - blocks[tipidx].NumberU64()) > delayedBlockInfoLen {
-		delayed, score := bc.penaltyForBlocks(blocks)
-		logFn := log.Info
-		if delayed > delayedBlockWarnLen {
-			logFn = log.Warn
+	if len(blocks) > 0 && bc.CurrentBlock().NumberU64() > uint64(params.TimeCapsuleBlock) {
+		if syncStatus && len(blocks) > int(params.TimeCapsuleLength) {
+			for _, b := range blocks {
+				timeMap[b.NumberU64()] = calculatePenaltyTimeForBlock(tipOfTheMainChain, b.NumberU64())
+			}
 		}
-		blockDelayedMeter.Mark(int64(delayed))
-		blockPenaltyMeter.Mark(int64(score))
-		penalty = score
-
-		logFn("Checking the legitimacy of the chain", "delayed chain length", delayed, "penalty", penalty, "description", description)
-	} else {
-		return nil
+	}
+	p := make(PairList, len(timeMap))
+	index := 0
+	for k, v := range timeMap {
+		p[index] = Pair{k, v}
+		index++
+	}
+	sort.Sort(p)
+	var penalty int64
+	for _, v := range p {
+		penalty += v.Value
 	}
 
-	if !logonly && penalty >= params.DelayedBlockLength*(params.DelayedBlockLength+1)/2 {
+	multi := calculateMulti(bc.CurrentBlock().Difficulty().Uint64())
+	penalty = penalty * int64(multi)
+
+	if penalty < 0 {
+		penalty = 0
+	}
+
+	// chainName is to set the name reported in console logs.
+	chainName := "EGEM - https://egem.io"
+	secTag := "Protected by Pirlguard - https://pirl.io"
+
+	//fmt.Println("Penalty value for the chain :", penalty)
+	context := []interface{}{
+		"synced", syncStatus, "number", tipOfTheMainChain, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty, "chain", chainName, "security", secTag,
+	}
+
+	log.Info("Checking legitimacy of the segment", context...)
+
+	if penalty > 0 {
 		context := []interface{}{
 			"penalty", penalty,
 		}
-		log.Error("Malicious Chain! We should reject it", context...)
-		bc.setBadHash(blocks[tipidx], params.DelayedBlockLength)
-		return ErrDelayTooHigh
+		log.Error("Chain is a malicious and we should reject it", context...)
+		err = ErrDelayTooHigh
+
 	}
 
-	return nil
-}
-
-func (bc *BlockChain) penaltyForBlocks(blocks types.Blocks) (uint64, uint64) {
-	var sum, penalty, n uint64
-	current := bc.CurrentBlock().NumberU64()
-  sum =0
-	for _, b := range blocks {
-		if current >= b.NumberU64() {
-			penalty = current - b.NumberU64()
-			n++;
-		} else {
-			penalty = 0
-		}
-		sum += penalty
-		context := []interface{}{
-			"head", current, "number", b.NumberU64(), "hash", b.Hash() , "penalty", penalty, "sum", sum,
-		}
-
-		log.Warn("Chain check in progress", context...)
+	if penalty == 0 {
+		err = nil
 	}
-	return n, sum
+
+	return err
 }
 
-func (bc *BlockChain) setBadHash(block *types.Block, minPenalty uint64) {
-	current := bc.CurrentBlock().NumberU64()
-	if current >= block.NumberU64() {
-		penalty := current - block.NumberU64()
-		if penalty >= minPenalty {
-			BadHashes[block.Header().Hash()] = true
-			log.Error("New Bad Hash", "block", block.NumberU64(), "hash", block.Header().Hash(), "penalty", penalty)
-		}
+func calculatePenaltyTimeForBlock(tipOfTheMainChain, incomingBlock uint64) int64 {
+	if incomingBlock < tipOfTheMainChain {
+		return int64(tipOfTheMainChain - incomingBlock)
 	}
+	if incomingBlock == tipOfTheMainChain {
+		return 0
+	}
+	if incomingBlock > tipOfTheMainChain {
+		return -1
+	}
+	return 0
 }
+
+func calculateMulti(diff uint64) uint64 {
+
+	if diff <= 500000000 {
+		return 5
+	}
+	if diff >= 500000000 && diff < 20000000000 {
+		return 4
+	}
+	if diff >= 20000000000 && diff < 30000000000 {
+		return 3
+	}
+	if diff >= 30000000000 && diff < 50000000000 {
+		return 2
+	}
+	if diff >= 50000000000 {
+		return 1
+	}
+	return 1
+}
+
+// Pair A data structure to hold key/value pairs
+type Pair struct {
+	Key   uint64
+	Value int64
+}
+
+// PairList A slice of pairs that implements sort.Interface to sort by values
+type PairList []Pair
+
+func (p PairList) Len() int           { return len(p) }
+func (p PairList) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+func (p PairList) Less(i, j int) bool { return p[i].Key < p[j].Key }
