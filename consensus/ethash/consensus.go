@@ -83,8 +83,8 @@ var (
 	egemSwitchBlockB2 *big.Int = big.NewInt(1850000)                                               //  1.85m block transtiton
 	egemSwitchBlock3           = uint64(2100000)                                                   //  2.1m block transtiton for node fund fix.
 	egemSwitchBlockB3 *big.Int = big.NewInt(2100000)
-	egemSwitchBlock4           = uint64(3000000)                                                    //  2.1m block transtiton for node fund fix.
-	egemSwitchBlockB4 *big.Int = big.NewInt(3000000)                                                //  2.1m block transtiton
+	egemSwitchBlock4           = uint64(2500000)                                                    //  2.5m uncle finder pay enabled.
+	egemSwitchBlockB4 *big.Int = big.NewInt(2500000)                                                //  2.5m uncle finder pay enabled.
 	nodeFund                   = common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644 ") // node multisig failed due to space.
 	nodeFundFixed              = common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644")  // node multisig fixed space... 0x87045b7badac9c2da19f5b0ee2bcea943a786644
 )
@@ -517,9 +517,10 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 	c := egemSwitchBlock2
 	d := egemSwitchBlock3
 	e := egemSwitchBlock4
+
 	if a > e {
 		// Accumulate any block and uncle rewards and commit the final state root
-		accumulateRewards4(chain.Config(), state, header, uncles)
+		accumulateRewards5(chain.Config(), state, header, uncles)
 		header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
 
 		// Header seems complete, assemble into a block and return
