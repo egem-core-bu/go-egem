@@ -83,8 +83,8 @@ var (
 	egemSwitchBlockB2 *big.Int = big.NewInt(1850000)                                               //  1.85m block transtiton
 	egemSwitchBlock3           = uint64(2100000)                                                   //  2.1m block transtiton for node fund fix.
 	egemSwitchBlockB3 *big.Int = big.NewInt(2100000)
-	egemSwitchBlock4           = uint64(2500000)                                                    //  2.5m uncle finder pay enabled.
-	egemSwitchBlockB4 *big.Int = big.NewInt(2500000)                                                //  2.5m uncle finder pay enabled.
+	egemSwitchBlock4           = uint64(2400000)                                                    //  2.4m uncle finder pay enabled.
+	egemSwitchBlockB4 *big.Int = big.NewInt(2400000)                                                //  2.4m uncle finder pay enabled.
 	nodeFund                   = common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644 ") // node multisig failed due to space.
 	nodeFundFixed              = common.HexToAddress("0x87045b7badac9c2da19f5b0ee2bcea943a786644")  // node multisig fixed space... 0x87045b7badac9c2da19f5b0ee2bcea943a786644
 )

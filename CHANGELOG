@@ -10,14 +10,17 @@ Changelog:
 -------------------------------------------------------------------
 
 v1.1.0
-- golang 1.11 compatible
-- version 2 of chain check for inserts/reorgs.
-- difficulty shown on block imports
-- arm device compile fixes after golang update
+- golang 1.11+ compatible
+- version 2 of chain check, branding added to console.
+- difficulty shown on block imports.
+- final difficulty adjustment (block 2.4mil).
+- uncle finder pay enabled (block 2.4mil).
+- arm device compile fixes after golang update.
+- quarrynode stats built into go-egem.
 
 v1.0.7-fixed
-- node fund typo fix. (block 2.1mil)
-- clean all down and old nodes from bootnodes
+- node fund typo fix. (block 2.1mil).
+- clean all down and old nodes from bootnodes.
 - increase max peers from 100 to 150.
 
 v1.0.6
