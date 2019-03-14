@@ -87,6 +87,7 @@ var (
 	DurationLimit          = big.NewInt(17)        // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
 	DurationLimitNew       = big.NewInt(15)        // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
 	DurationLimitFixed     = big.NewInt(12)        // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
+	DurationLimitFinal     = big.NewInt(9)         // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
 	TimeCapsuleBlock       = int64(0)
 	TimeCapsuleLength      = uint64(20)
 )

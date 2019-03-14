@@ -335,7 +335,10 @@ func (ethash *Ethash) verifyHeader(chain consensus.ChainReader, header, parent *
 // the difficulty that a new block should have when created at time
 // given the parent block's time and difficulty.
 func (ethash *Ethash) CalcDifficulty(chain consensus.ChainReader, time uint64, parent *types.Header) *big.Int {
-	if parent.Number.Cmp(egemSwitchBlockB3) == 1 {
+	if parent.Number.Cmp(egemSwitchBlockB4) == 1 {
+		// Final adjustment
+		return calcDifficultyEGEM4(time, parent)
+	} else if parent.Number.Cmp(egemSwitchBlockB3) == 1 {
 		// Fixed Fork difficulty
 		return calcDifficultyEGEM3(time, parent)
 	} else if parent.Number.Cmp(egemSwitchBlockB2) == 1 {
@@ -438,6 +441,35 @@ func calcDifficultyEGEM3(time uint64, parent *types.Header) *big.Int {
 	bigParentTime.Set(parent.Time)
 
 	if bigTime.Sub(bigTime, bigParentTime).Cmp(params.DurationLimitFixed) < 0 {
+		diff.Add(parent.Difficulty, big99)
+		diff.Add(diff, adjustUp)
+	} else {
+		diff.Sub(parent.Difficulty, big100)
+		diff.Sub(diff, adjustDown)
+	}
+
+	if diff.Cmp(params.MinimumDifficultyNew) < 0 {
+		diff.Set(params.MinimumDifficultyNew)
+	}
+	// context := []interface{}{
+	// 	"picked", diff,
+	// }
+	// log.Info("Next Block Difficulty ", context...)
+	return diff
+}
+
+func calcDifficultyEGEM4(time uint64, parent *types.Header) *big.Int {
+	diff := new(big.Int)
+	adjustUp := new(big.Int).Div(parent.Difficulty, big99)
+	adjustDown := new(big.Int).Div(parent.Difficulty, big100)
+
+	bigTime := new(big.Int)
+	bigParentTime := new(big.Int)
+
+	bigTime.SetUint64(time)
+	bigParentTime.Set(parent.Time)
+
+	if bigTime.Sub(bigTime, bigParentTime).Cmp(params.DurationLimitFinal) < 0 {
 		diff.Add(parent.Difficulty, big99)
 		diff.Add(diff, adjustUp)
 	} else {
