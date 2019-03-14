@@ -17,7 +17,7 @@
 package api
 
 import (
-	"github.com/TeamEGEM/go-egem/swarm/network"
+	"git.egem.io/team/go-egem/swarm/network"
 )
 
 type Control struct {

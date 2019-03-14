@@ -23,8 +23,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/core/vm"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/core/vm"
 )
 
 // Compiler contains information about the parsed source

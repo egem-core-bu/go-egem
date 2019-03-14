@@ -26,10 +26,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/cmd/internal/browser"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/cmd/internal/browser"
+	"git.egem.io/team/go-egem/params"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/cmd/utils"
 	cli "gopkg.in/urfave/cli.v1"
 )
 
@@ -41,7 +41,7 @@ var bugCommand = cli.Command{
 	Category:  "MISCELLANEOUS COMMANDS",
 }
 
-const issueUrl = "https://github.com/TeamEGEM/go-egem/issues/new"
+const issueUrl = "https://git.egem.io/team/go-egem/issues/new"
 
 // reportBug reports a bug by opening a new URL to the go-ethereum GH issue
 // tracker and setting default values as the issue body.

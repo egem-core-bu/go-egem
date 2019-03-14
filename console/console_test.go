@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/consensus/ethash"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/eth"
-	"github.com/TeamEGEM/go-egem/internal/jsre"
-	"github.com/TeamEGEM/go-egem/node"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/consensus/ethash"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/eth"
+	"git.egem.io/team/go-egem/internal/jsre"
+	"git.egem.io/team/go-egem/node"
 )
 
 const (

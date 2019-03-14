@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts/abi/bind"
-	"github.com/TeamEGEM/go-egem/accounts/abi/bind/backends"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/accounts/abi/bind"
+	"git.egem.io/team/go-egem/accounts/abi/bind/backends"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 var testKey, _ = crypto.HexToECDSA("b71c71a67e1177ad4e901695e1b4b9ee17ae16c6668d313eac2f96dbcda3f291")

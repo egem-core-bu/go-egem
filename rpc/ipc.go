@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // CreateIPCListener creates an listener, on Unix platforms this is a unix socket, on

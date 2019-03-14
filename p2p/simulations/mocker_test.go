@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/discover"
 )
 
 func TestMocker(t *testing.T) {

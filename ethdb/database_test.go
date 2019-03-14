@@ -25,7 +25,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/ethdb"
+	"git.egem.io/team/go-egem/ethdb"
 )
 
 func newTestLDB() (*ethdb.LDBDatabase, func()) {

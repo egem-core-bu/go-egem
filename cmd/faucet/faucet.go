@@ -41,23 +41,23 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/accounts/keystore"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/eth"
-	"github.com/TeamEGEM/go-egem/eth/downloader"
-	"github.com/TeamEGEM/go-egem/ethclient"
-	"github.com/TeamEGEM/go-egem/ethstats"
-	"github.com/TeamEGEM/go-egem/les"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/p2p/discv5"
-	"github.com/TeamEGEM/go-egem/p2p/nat"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/accounts/keystore"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/eth"
+	"git.egem.io/team/go-egem/eth/downloader"
+	"git.egem.io/team/go-egem/ethclient"
+	"git.egem.io/team/go-egem/ethstats"
+	"git.egem.io/team/go-egem/les"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/discv5"
+	"git.egem.io/team/go-egem/p2p/nat"
+	"git.egem.io/team/go-egem/params"
 	"golang.org/x/net/websocket"
 )
 
@@ -450,7 +450,7 @@ func (f *faucet) apiHandler(conn *websocket.Conn) {
 		case *noauthFlag:
 			username, avatar, address, err = authNoAuth(msg.URL)
 		default:
-			err = errors.New("Something funky happened, please open an issue at https://github.com/TeamEGEM/go-egem/issues")
+			err = errors.New("Something funky happened, please open an issue at https://git.egem.io/team/go-egem/issues")
 		}
 		if err != nil {
 			if err = sendError(conn, err); err != nil {

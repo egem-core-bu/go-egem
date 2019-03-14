@@ -19,10 +19,10 @@ package core
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/consensus"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/params"
 )
 
 // BlockValidator is responsible for validating block headers, uncles and

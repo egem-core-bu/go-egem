@@ -21,11 +21,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/contracts/chequebook"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/swarm/network/kademlia"
-	"github.com/TeamEGEM/go-egem/swarm/services/swap"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/contracts/chequebook"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/swarm/network/kademlia"
+	"git.egem.io/team/go-egem/swarm/services/swap"
+	"git.egem.io/team/go-egem/swarm/storage"
 )
 
 /*

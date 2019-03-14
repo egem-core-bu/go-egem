@@ -30,8 +30,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 // Node represents a host on the network.

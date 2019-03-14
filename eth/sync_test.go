@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/eth/downloader"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/eth/downloader"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/discover"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

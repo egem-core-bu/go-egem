@@ -21,7 +21,7 @@ import (
 	"bytes"
 	"errors"
 
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 const (

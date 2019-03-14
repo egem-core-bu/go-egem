@@ -21,7 +21,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 func (Address) Generate(rand *rand.Rand, size int) reflect.Value {

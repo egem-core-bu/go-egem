@@ -25,11 +25,11 @@ import (
 	"sync"
 	"time"
 
-	ethereum "github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/log"
+	ethereum "git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/log"
 	"github.com/karalabe/hid"
 )
 

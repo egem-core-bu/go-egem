@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common/math"
+	"git.egem.io/team/go-egem/common/math"
 )
 
 func TestBlockNumberJSONUnmarshal(t *testing.T) {

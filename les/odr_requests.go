@@ -23,15 +23,15 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/light"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/rlp"
-	"github.com/TeamEGEM/go-egem/trie"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/light"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/rlp"
+	"git.egem.io/team/go-egem/trie"
 )
 
 var (

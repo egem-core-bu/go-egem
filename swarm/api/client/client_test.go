@@ -25,8 +25,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/swarm/api"
-	"github.com/TeamEGEM/go-egem/swarm/testutil"
+	"git.egem.io/team/go-egem/swarm/api"
+	"git.egem.io/team/go-egem/swarm/testutil"
 )
 
 // TestClientUploadDownloadRaw test uploading and downloading raw data to swarm

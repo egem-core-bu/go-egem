@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // manageServers displays a list of servers the user can disconnect from, and an

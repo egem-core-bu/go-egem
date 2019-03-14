@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 var (

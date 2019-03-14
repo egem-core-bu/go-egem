@@ -24,8 +24,8 @@ import (
 
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/internal/debug"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/internal/debug"
 	"gopkg.in/urfave/cli.v1"
 )
 

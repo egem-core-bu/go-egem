@@ -21,11 +21,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/math"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/math"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/params"
 )
 
 var (

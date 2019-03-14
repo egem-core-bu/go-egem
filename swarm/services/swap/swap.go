@@ -26,14 +26,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts/abi/bind"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/contracts/chequebook"
-	"github.com/TeamEGEM/go-egem/contracts/chequebook/contract"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/swarm/services/swap/swap"
+	"git.egem.io/team/go-egem/accounts/abi/bind"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/contracts/chequebook"
+	"git.egem.io/team/go-egem/contracts/chequebook/contract"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/swarm/services/swap/swap"
 )
 
 // SwAP       Swarm Accounting Protocol with

@@ -27,7 +27,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common/math"
+	"git.egem.io/team/go-egem/common/math"
 	"gopkg.in/urfave/cli.v1"
 )
 

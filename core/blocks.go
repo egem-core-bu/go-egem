@@ -16,7 +16,7 @@
 
 package core
 
-import "github.com/TeamEGEM/go-egem/common"
+import "git.egem.io/team/go-egem/common"
 
 // BadHashes represent a set of manually tracked bad hashes (usually hard forks)
 var BadHashes = map[common.Hash]bool{

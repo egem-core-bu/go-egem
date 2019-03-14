@@ -23,10 +23,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/tests"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/tests"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

@@ -20,7 +20,7 @@ import (
 	"crypto/sha256"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto"
 	"golang.org/x/crypto/pbkdf2"
 )
 

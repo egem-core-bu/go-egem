@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/event"
+	"git.egem.io/team/go-egem/event"
 )
 
 func ExampleNewSubscription() {

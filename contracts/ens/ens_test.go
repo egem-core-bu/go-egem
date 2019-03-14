@@ -20,11 +20,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/accounts/abi/bind"
-	"github.com/TeamEGEM/go-egem/accounts/abi/bind/backends"
-	"github.com/TeamEGEM/go-egem/contracts/ens/contract"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/accounts/abi/bind"
+	"git.egem.io/team/go-egem/accounts/abi/bind/backends"
+	"git.egem.io/team/go-egem/contracts/ens/contract"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 var (

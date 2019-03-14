@@ -24,13 +24,13 @@ import (
 	"net"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/mclock"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/p2p/netutil"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/mclock"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/p2p/netutil"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 var (

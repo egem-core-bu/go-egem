@@ -22,13 +22,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/crypto/sha3"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/trie"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/crypto/sha3"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/trie"
 )
 
 // stateReq represents a batch of state fetch requests groupped together into

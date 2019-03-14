@@ -80,13 +80,14 @@ const (
 )
 
 var (
-	DifficultyBoundDivisor = big.NewInt(2048)   // The bound divisor of the difficulty, used in the update calculations.
+	DifficultyBoundDivisor = big.NewInt(2048)      // The bound divisor of the difficulty, used in the update calculations.
 	GenesisDifficulty      = big.NewInt(113635671) // Difficulty of the Genesis block.
 	MinimumDifficulty      = big.NewInt(113635671) // The minimum that the difficulty may ever be.
-	MinimumDifficultyNew   = big.NewInt(131072) // The minimum that the difficulty may ever be.
-	DurationLimit          = big.NewInt(17)     // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
-	DurationLimitNew       = big.NewInt(15)     // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
-	DurationLimitFixed     = big.NewInt(12)     	// The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
-	TimeCapsuleBlock  		 = int64(1650000)
-	TimeCapsuleLength 	   = uint64(20)
+	MinimumDifficultyNew   = big.NewInt(131072)    // The minimum that the difficulty may ever be.
+	DurationLimit          = big.NewInt(17)        // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
+	DurationLimitNew       = big.NewInt(15)        // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
+	DurationLimitFixed     = big.NewInt(12)        // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
+	DurationLimitFinal     = big.NewInt(9)         // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
+	TimeCapsuleBlock       = int64(0)
+	TimeCapsuleLength      = uint64(20)
 )

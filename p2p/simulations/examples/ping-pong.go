@@ -25,13 +25,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/p2p/simulations"
-	"github.com/TeamEGEM/go-egem/p2p/simulations/adapters"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/simulations"
+	"git.egem.io/team/go-egem/p2p/simulations/adapters"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 var adapterType = flag.String("adapter", "sim", `node adapter to use (one of "sim", "exec" or "docker")`)

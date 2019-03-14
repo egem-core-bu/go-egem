@@ -17,9 +17,9 @@
 package core
 
 import (
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/core/vm"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/core/vm"
 )
 
 // Validator is an interface which defines the standard for block validation. It

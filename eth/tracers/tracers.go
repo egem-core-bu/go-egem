@@ -21,7 +21,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/TeamEGEM/go-egem/eth/tracers/internal/tracers"
+	"git.egem.io/team/go-egem/eth/tracers/internal/tracers"
 )
 
 // all contains all the built in JavaScript tracers by name.

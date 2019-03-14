@@ -24,17 +24,17 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/eth"
-	"github.com/TeamEGEM/go-egem/eth/downloader"
-	"github.com/TeamEGEM/go-egem/ethclient"
-	"github.com/TeamEGEM/go-egem/ethstats"
-	"github.com/TeamEGEM/go-egem/les"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/nat"
-	"github.com/TeamEGEM/go-egem/params"
-	whisper "github.com/TeamEGEM/go-egem/whisper/whisperv5"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/eth"
+	"git.egem.io/team/go-egem/eth/downloader"
+	"git.egem.io/team/go-egem/ethclient"
+	"git.egem.io/team/go-egem/ethstats"
+	"git.egem.io/team/go-egem/les"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/nat"
+	"git.egem.io/team/go-egem/params"
+	whisper "git.egem.io/team/go-egem/whisper/whisperv5"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Geth

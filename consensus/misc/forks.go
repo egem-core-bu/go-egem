@@ -19,9 +19,9 @@ package misc
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/params"
 )
 
 // VerifyForkHashes verifies that blocks conforming to network hard-forks do have

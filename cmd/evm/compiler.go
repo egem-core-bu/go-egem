@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/TeamEGEM/go-egem/cmd/evm/internal/compiler"
+	"git.egem.io/team/go-egem/cmd/evm/internal/compiler"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

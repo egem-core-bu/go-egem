@@ -26,7 +26,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // makeWizard creates and returns a new puppeth wizard.

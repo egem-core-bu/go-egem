@@ -23,9 +23,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // A Nonce is a 64-bit hash which proves (combined with the mix-hash) that

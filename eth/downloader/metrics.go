@@ -19,7 +19,7 @@
 package downloader
 
 import (
-	"github.com/TeamEGEM/go-egem/metrics"
+	"git.egem.io/team/go-egem/metrics"
 )
 
 var (

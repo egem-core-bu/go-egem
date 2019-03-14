@@ -1,10 +1,10 @@
 package main
  import (
 	"math"
- 	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/log"
+ 	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/log"
 	"gopkg.in/urfave/cli.v1"
 )
  var buildAddrTxIndexCommand = cli.Command{

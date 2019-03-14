@@ -19,7 +19,7 @@ package downloader
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

@@ -21,7 +21,7 @@ package dashboard
 import (
 	"syscall"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // getProcessCPUTime retrieves the process' CPU time since program startup.

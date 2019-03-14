@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

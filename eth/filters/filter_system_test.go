@@ -25,16 +25,16 @@ import (
 	"testing"
 	"time"
 
-	ethereum "github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/consensus/ethash"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/bloombits"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/rpc"
+	ethereum "git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/consensus/ethash"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/bloombits"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 type testBackend struct {

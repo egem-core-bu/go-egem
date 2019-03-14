@@ -23,10 +23,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/p2p/simulations/adapters"
-	p2ptest "github.com/TeamEGEM/go-egem/p2p/testing"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/simulations/adapters"
+	p2ptest "git.egem.io/team/go-egem/p2p/testing"
 )
 
 // handshake message type

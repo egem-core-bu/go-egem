@@ -19,8 +19,8 @@ package runtime_test
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/vm/runtime"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/vm/runtime"
 )
 
 func ExampleExecute() {

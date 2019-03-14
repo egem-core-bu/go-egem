@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/mclock"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/mclock"
 )
 
 func TestTopicRadius(t *testing.T) {

@@ -19,9 +19,9 @@ package keystore
 import (
 	"math/big"
 
-	ethereum "github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/core/types"
+	ethereum "git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // keystoreWallet implements the accounts.Wallet interface for the original

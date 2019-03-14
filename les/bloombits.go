@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common/bitutil"
-	"github.com/TeamEGEM/go-egem/light"
+	"git.egem.io/team/go-egem/common/bitutil"
+	"git.egem.io/team/go-egem/light"
 )
 
 const (

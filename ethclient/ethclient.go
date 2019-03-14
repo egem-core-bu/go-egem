@@ -24,12 +24,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/rlp"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/rlp"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 // Client defines typed wrappers for the Ethereum RPC API.

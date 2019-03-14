@@ -22,9 +22,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

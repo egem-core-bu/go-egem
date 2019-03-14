@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/params"
 )
 
 // This table defines supported forks and their chain config.

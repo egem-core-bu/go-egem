@@ -24,13 +24,13 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/consensus/ethash"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/eth/downloader"
-	"github.com/TeamEGEM/go-egem/eth/gasprice"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/consensus/ethash"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/eth/downloader"
+	"git.egem.io/team/go-egem/eth/gasprice"
+	"git.egem.io/team/go-egem/params"
 )
 
 // DefaultConfig contains default settings for use on the Ethereum main net.

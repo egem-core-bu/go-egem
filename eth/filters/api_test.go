@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 func TestUnmarshalJSONNewFilterArgs(t *testing.T) {

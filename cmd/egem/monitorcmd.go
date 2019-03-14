@@ -25,9 +25,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/rpc"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/rpc"
 	"github.com/gizak/termui"
 	"gopkg.in/urfave/cli.v1"
 )

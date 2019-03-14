@@ -17,14 +17,14 @@
 package core
 
 import (
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/consensus"
-	"github.com/TeamEGEM/go-egem/consensus/misc"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/consensus"
+	"git.egem.io/team/go-egem/consensus/misc"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/params"
 )
 
 // StateProcessor is a basic Processor, which takes care of transitioning

@@ -22,10 +22,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/p2p/discover"
-	"github.com/TeamEGEM/go-egem/p2p/simulations/adapters"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/simulations/adapters"
 )
 
 var errTimedOut = errors.New("timed out")

@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 var (

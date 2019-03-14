@@ -17,7 +17,7 @@
 // Package bind generates Ethereum contract Go bindings.
 //
 // Detailed usage document and tutorial available on the go-ethereum Wiki page:
-// https://github.com/TeamEGEM/go-egem/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts
+// https://git.egem.io/team/go-egem/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts
 package bind
 
 import (
@@ -28,7 +28,7 @@ import (
 	"text/template"
 	"unicode"
 
-	"github.com/TeamEGEM/go-egem/accounts/abi"
+	"git.egem.io/team/go-egem/accounts/abi"
 	"golang.org/x/tools/imports"
 )
 

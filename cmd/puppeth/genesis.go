@@ -21,10 +21,10 @@ import (
 	"errors"
 	"math"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/params"
 )
 
 // cppEthereumGenesisSpec represents the genesis specification format used by the

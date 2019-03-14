@@ -20,17 +20,17 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 /*
 http roundtripper to register for bzz url scheme
-see https://github.com/TeamEGEM/go-egem/issues/2040
+see https://git.egem.io/team/go-egem/issues/2040
 Usage:
 
 import (
- "github.com/TeamEGEM/go-egem/common/httpclient"
- "github.com/TeamEGEM/go-egem/swarm/api/http"
+ "git.egem.io/team/go-egem/common/httpclient"
+ "git.egem.io/team/go-egem/swarm/api/http"
 )
 client := httpclient.New()
 // for (private) swarm proxy running locally

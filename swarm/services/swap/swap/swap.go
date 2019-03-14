@@ -22,7 +22,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // SwAP Swarm Accounting Protocol with

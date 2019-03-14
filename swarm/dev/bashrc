@@ -1,4 +1,4 @@
-export ROOT="${GOPATH}/src/github.com/TeamEGEM/go-egem"
+export ROOT="${GOPATH}/src/git.egem.io/team/go-egem"
 export PATH="${ROOT}/swarm/dev/bin:${PATH}"
 
 cd "${ROOT}/swarm/dev"

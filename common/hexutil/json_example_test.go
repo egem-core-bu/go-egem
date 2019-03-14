@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/common/hexutil"
 )
 
 type MyType [5]byte

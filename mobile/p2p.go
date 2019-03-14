@@ -21,7 +21,7 @@ package geth
 import (
 	"errors"
 
-	"github.com/TeamEGEM/go-egem/p2p"
+	"git.egem.io/team/go-egem/p2p"
 )
 
 // NodeInfo represents pi short summary of the information known about the host.

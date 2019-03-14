@@ -38,9 +38,9 @@ import (
 	"math/big"
 	"unsafe"
 
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/params"
 )
 
 type JitVm struct {

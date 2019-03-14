@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 )
 
 // ContractRef is a reference to the contract's backing object

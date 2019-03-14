@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common/mclock"
+	"git.egem.io/team/go-egem/common/mclock"
 )
 
 // Subscription represents a stream of events. The carrier of the events is typically a

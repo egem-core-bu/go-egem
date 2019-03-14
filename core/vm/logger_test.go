@@ -20,8 +20,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/params"
 )
 
 type dummyContractRef struct {

@@ -28,9 +28,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/swarm/api"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/swarm/api"
 )
 
 //templateMap holds a mapping of an HTTP error code to a template

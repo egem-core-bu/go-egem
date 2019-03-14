@@ -19,9 +19,9 @@ package state
 import (
 	"bytes"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/rlp"
-	"github.com/TeamEGEM/go-egem/trie"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/rlp"
+	"git.egem.io/team/go-egem/trie"
 )
 
 // NewStateSync create a new state trie download scheduler.

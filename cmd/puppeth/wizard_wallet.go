@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // deployWallet creates a new web wallet based on some user input.

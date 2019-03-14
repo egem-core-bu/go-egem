@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/event"
+	"git.egem.io/team/go-egem/event"
 )
 
 // This example demonstrates how SubscriptionScope can be used to control the lifetime of

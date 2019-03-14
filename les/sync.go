@@ -20,9 +20,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/eth/downloader"
-	"github.com/TeamEGEM/go-egem/light"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/eth/downloader"
+	"git.egem.io/team/go-egem/light"
 )
 
 const (

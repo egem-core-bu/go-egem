@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/ethdb"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/ethdb"
 )
 
 // Tests that the node iterator indeed walks over the entire database contents.

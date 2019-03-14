@@ -17,8 +17,8 @@
 package core
 
 import (
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // TxPreEvent is posted when a transaction enters the transaction pool.

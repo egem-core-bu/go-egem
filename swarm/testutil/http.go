@@ -22,9 +22,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/swarm/api"
-	httpapi "github.com/TeamEGEM/go-egem/swarm/api/http"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/swarm/api"
+	httpapi "git.egem.io/team/go-egem/swarm/api/http"
+	"git.egem.io/team/go-egem/swarm/storage"
 )
 
 func NewTestSwarmServer(t *testing.T) *TestSwarmServer {

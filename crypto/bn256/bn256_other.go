@@ -22,7 +22,7 @@ package bn256
 import (
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/crypto/bn256/google"
+	"git.egem.io/team/go-egem/crypto/bn256/google"
 )
 
 // G1 is an abstract cyclic group. The zero value is suitable for use as the

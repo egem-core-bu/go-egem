@@ -22,12 +22,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/accounts/abi"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/event"
+	"git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/accounts/abi"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/event"
 )
 
 // SignerFn is a signer function callback when a contract requires a method to

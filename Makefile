@@ -16,6 +16,11 @@ egem:
 	@echo "Done building."
 	@echo "Run \"$(GOBIN)/egem\" to launch egem."
 
+stats:
+	build/env.sh go run build/ci.go install ./cmd/stats
+	@echo "Done building."
+	@echo "Run \"$(GOBIN)/stats\" to launch quarrynode stats."
+
 swarm:
 	build/env.sh go run build/ci.go install ./cmd/swarm
 	@echo "Done building."

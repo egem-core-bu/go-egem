@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
+	"git.egem.io/team/go-egem/common"
 	"golang.org/x/crypto/pbkdf2"
 )
 

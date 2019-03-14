@@ -21,7 +21,7 @@ package p2p
 import (
 	"net"
 
-	"github.com/TeamEGEM/go-egem/metrics"
+	"git.egem.io/team/go-egem/metrics"
 )
 
 var (

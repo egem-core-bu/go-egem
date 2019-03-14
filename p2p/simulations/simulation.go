@@ -20,7 +20,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/p2p/discover"
+	"git.egem.io/team/go-egem/p2p/discover"
 )
 
 // Simulation provides a framework for running actions in a simulated network

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 // Method represents a callable given a `Name` and whether the method is a constant.

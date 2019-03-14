@@ -27,12 +27,12 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/TeamEGEM/go-egem/cmd/utils"
-	"github.com/TeamEGEM/go-egem/dashboard"
-	"github.com/TeamEGEM/go-egem/eth"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/params"
-	whisper "github.com/TeamEGEM/go-egem/whisper/whisperv5"
+	"git.egem.io/team/go-egem/cmd/utils"
+	"git.egem.io/team/go-egem/dashboard"
+	"git.egem.io/team/go-egem/eth"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/params"
+	whisper "git.egem.io/team/go-egem/whisper/whisperv5"
 	"github.com/naoina/toml"
 )
 

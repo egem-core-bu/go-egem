@@ -19,10 +19,10 @@ package rawdb
 import (
 	"encoding/json"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/params"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/params"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // ReadDatabaseVersion retrieves the version number of the database.

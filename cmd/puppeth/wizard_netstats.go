@@ -23,8 +23,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/log"
 	"github.com/olekukonko/tablewriter"
 )
 

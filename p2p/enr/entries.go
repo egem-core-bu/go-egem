@@ -22,8 +22,8 @@ import (
 	"io"
 	"net"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/rlp"
 )
 
 // Entry is implemented by known node record entry types.

@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/event"
+	"git.egem.io/team/go-egem/accounts"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/event"
 )
 
 var testSigData = make([]byte, 32)

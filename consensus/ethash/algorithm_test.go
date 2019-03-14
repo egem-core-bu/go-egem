@@ -25,9 +25,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 // Tests whether the dataset size calculator works correctly by cross checking the

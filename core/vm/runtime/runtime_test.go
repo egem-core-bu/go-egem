@@ -21,11 +21,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/accounts/abi"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/state"
-	"github.com/TeamEGEM/go-egem/core/vm"
-	"github.com/TeamEGEM/go-egem/ethdb"
+	"git.egem.io/team/go-egem/accounts/abi"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/state"
+	"git.egem.io/team/go-egem/core/vm"
+	"git.egem.io/team/go-egem/ethdb"
 )
 
 func TestDefaults(t *testing.T) {

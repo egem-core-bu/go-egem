@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/log"
 )
 
 // deployDashboard queries the user for various input on deploying a web-service

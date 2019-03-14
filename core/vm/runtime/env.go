@@ -17,9 +17,9 @@
 package runtime
 
 import (
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core"
-	"github.com/TeamEGEM/go-egem/core/vm"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core"
+	"git.egem.io/team/go-egem/core/vm"
 )
 
 func NewEnv(cfg *Config) *vm.EVM {

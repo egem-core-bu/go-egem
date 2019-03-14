@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common/mclock"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common/mclock"
+	"git.egem.io/team/go-egem/log"
 )
 
 const (

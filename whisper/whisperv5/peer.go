@@ -20,10 +20,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/p2p"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/p2p"
+	"git.egem.io/team/go-egem/rlp"
 	set "gopkg.in/fatih/set.v0"
 )
 

@@ -19,7 +19,7 @@ package vm
 import (
 	"fmt"
 
-	"github.com/TeamEGEM/go-egem/params"
+	"git.egem.io/team/go-egem/params"
 )
 
 func makeStackFunc(pop, push int) stackValidationFunc {

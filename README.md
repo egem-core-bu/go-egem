@@ -8,10 +8,10 @@ Binary archives are published at https://git.egem.io/team/egem-binaries.
 ## Building the source
 
 For prerequisites and detailed build instructions please read the
-[Installation Instructions](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+[Installation Instructions](https://wiki.egem.io/xwiki/bin/view/Main/EtherGem/)
 on the wiki.
 
-Building egem requires both a Go (version 1.10 or later) and a C compiler.
+Building egem requires both a Go (version 1.11 or later) and a C compiler.
 You can install them using your favourite package manager.
 Once the dependencies are installed, run
 
@@ -27,13 +27,14 @@ The go-egem project comes with several wrappers/executables found in the `cmd` d
 
 | Command    | Description |
 |:----------:|-------------|
-| **`egem`** | Our main EGEM CLI client. It is the entry point into the EGEM network (main-, test- or private net), capable of running as a full node (default) archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Egem network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `egem --help` and the [CLI Wiki page](https://github.com/TeamEGEM/go-egem/wiki/Command-Line-Options) for command line options. |
+| **`egem`** | Our main EGEM CLI client. It is the entry point into the EGEM network. |
+| **`stats`** | Quarrynode JSON output for usage with our system. |
 
 
 ## Running egem
 
 Going through all the possible command line flags is out of scope here (please consult our
-[CLI Wiki page](https://git.egem.io/team/go-egem/wikis/Command-Line-Options)), but we've
+[CLI Wiki page](https://wiki.egem.io/xwiki/bin/view/Main/EtherGem/)), but we've
 enumerated a few common parameter combos to get you up to speed quickly on how you can run your
 own EGEM instance.
 
@@ -91,8 +92,8 @@ Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containe
 
 As a developer, sooner rather than later you'll want to start interacting with EGEM and the EtherGem
 network via your own programs and not manually through the console. To aid this, EGEM has built in
-support for a JSON-RPC based APIs ([standard APIs](https://github.com/ethereum/wiki/wiki/JSON-RPC) and
-[Geth specific APIs](https://github.com/TeamEGEM/go-egem/wiki/Management-APIs)). These can be
+support for a JSON-RPC based APIs ([standard APIs](https://wiki.egem.io/xwiki/bin/view/Main/EtherGem/) and
+[EGEM specific APIs](https://wiki.egem.io/xwiki/bin/view/Main/EtherGem/)). These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
 The IPC interface is enabled by default and exposes all the APIs supported by EGEM, whereas the HTTP
@@ -126,10 +127,10 @@ subvert locally available APIs!**
 
 ## License
 
-The go-ethereum library (i.e. all code outside of the `cmd` directory) is licensed under the
+The go-egem library (i.e. all code outside of the `cmd` directory) is licensed under the
 [GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html), also
 included in our repository in the `COPYING.LESSER` file.
 
-The go-ethereum binaries (i.e. all code inside of the `cmd` directory) is licensed under the
+The go-egem binaries (i.e. all code inside of the `cmd` directory) is licensed under the
 [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html), also included
 in our repository in the `COPYING` file.

@@ -24,10 +24,10 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/log/term"
-	"github.com/TeamEGEM/go-egem/metrics"
-	"github.com/TeamEGEM/go-egem/metrics/exp"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/log/term"
+	"git.egem.io/team/go-egem/metrics"
+	"git.egem.io/team/go-egem/metrics/exp"
 	colorable "github.com/mattn/go-colorable"
 	"gopkg.in/urfave/cli.v1"
 )

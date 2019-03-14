@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/core/types"
+	"git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/core/types"
 )
 
 var (

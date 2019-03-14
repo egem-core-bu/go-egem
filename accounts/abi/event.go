@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/crypto"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/crypto"
 )
 
 // Event is an event potentially triggered by the EVM's LOG mechanism. The Event

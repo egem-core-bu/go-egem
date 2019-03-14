@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/accounts/keystore"
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/accounts/keystore"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

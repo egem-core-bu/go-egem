@@ -22,14 +22,14 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/contracts/ens"
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/log"
-	"github.com/TeamEGEM/go-egem/node"
-	"github.com/TeamEGEM/go-egem/swarm/network"
-	"github.com/TeamEGEM/go-egem/swarm/services/swap"
-	"github.com/TeamEGEM/go-egem/swarm/storage"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/contracts/ens"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/log"
+	"git.egem.io/team/go-egem/node"
+	"git.egem.io/team/go-egem/swarm/network"
+	"git.egem.io/team/go-egem/swarm/services/swap"
+	"git.egem.io/team/go-egem/swarm/storage"
 )
 
 const (

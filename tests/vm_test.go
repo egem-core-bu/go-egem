@@ -19,7 +19,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/TeamEGEM/go-egem/core/vm"
+	"git.egem.io/team/go-egem/core/vm"
 )
 
 func TestVM(t *testing.T) {

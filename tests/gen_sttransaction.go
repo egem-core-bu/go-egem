@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/TeamEGEM/go-egem/common/hexutil"
-	"github.com/TeamEGEM/go-egem/common/math"
+	"git.egem.io/team/go-egem/common/hexutil"
+	"git.egem.io/team/go-egem/common/math"
 )
 
 var _ = (*stTransactionMarshaling)(nil)

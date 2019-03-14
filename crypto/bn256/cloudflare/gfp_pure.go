@@ -1,19 +1,8 @@
 //  +build !amd64 appengine gccgo
-
 package bn256
+import (
+	"golang.org/x/sys/cpu"
+)
 
-func gfpNeg(c, a *gfP) {
-	panic("unsupported architecture")
-}
-
-func gfpAdd(c, a, b *gfP) {
-	panic("unsupported architecture")
-}
-
-func gfpSub(c, a, b *gfP) {
-	panic("unsupported architecture")
-}
-
-func gfpMul(c, a, b *gfP) {
-	panic("unsupported architecture")
-}
+//nolint:varcheck
+var hasBMI2 = cpu.X86.HasBMI2

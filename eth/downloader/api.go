@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	ethereum "github.com/TeamEGEM/go-egem"
-	"github.com/TeamEGEM/go-egem/event"
-	"github.com/TeamEGEM/go-egem/rpc"
+	ethereum "git.egem.io/team/go-egem"
+	"git.egem.io/team/go-egem/event"
+	"git.egem.io/team/go-egem/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

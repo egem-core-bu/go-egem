@@ -20,9 +20,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/common"
-	"github.com/TeamEGEM/go-egem/ethdb"
-	"github.com/TeamEGEM/go-egem/log"
+	"git.egem.io/team/go-egem/common"
+	"git.egem.io/team/go-egem/ethdb"
+	"git.egem.io/team/go-egem/log"
 )
 
 // secureKeyPrefix is the database key prefix used to store trie node preimages.

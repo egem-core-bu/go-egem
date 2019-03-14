@@ -24,8 +24,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TeamEGEM/go-egem/crypto"
-	"github.com/TeamEGEM/go-egem/rlp"
+	"git.egem.io/team/go-egem/crypto"
+	"git.egem.io/team/go-egem/rlp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
